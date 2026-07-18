@@ -12,7 +12,6 @@ No proprietary desktop software required: just plug it in, connect to Wi-Fi, and
 
 * **The Brain:** Powered by a high-performance **ESP32-S3 Zero/Mini** (or optional ESP32C3 Zero/Mini or ESP32C6 Zero/Mini (NOT SuperMini)). Provides massive computing power for complex PID controllers, Wi-Fi, and Bluetooth.
 * **4x Independent Channels:** Full PWM control and true RPM feedback (tacho signal) for up to four 12V fans.
-* **Stand-Alone Web-Interface:** Clean, dedicated web UI hosted directly on the ESP32. No need for external utility software or cloud services.
 * **Global Zero-RPM Mode:** Basic controllers often rely on a 0% PWM signal, which many fans ignore by dropping to a minimum idle speed. By acting as a master high-side switch, the eFuse allows the ESP32 to physically cut the 12V power to the entire fan rail at once – ensuring absolute 0dB silence for your whole setup when you don't need cooling.
 * **Premium Power Delivery:** Instead of relying on cheap, heat-generating linear regulators (LDOs), this board features a high-end, fully encapsulated K7805-1000R3 switching regulator. This highly efficient (up to 96%) step-down converter guarantees a perfectly stable and icy-cool power supply for the ESP32-S3, ensuring rock-solid 24/7 reliability without any thermal issues. 
 * **Overbuilt Power Delivery:** To ensure absolute thermal stability, the main 12V power traces are routed at a massive 1.9 mm width. Even running four heavy-duty fans at 100% capacity 24/7, the board remains completely cold, for a maximum lifespan of components.
