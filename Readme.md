@@ -8,7 +8,7 @@ An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC m
 
 No proprietary desktop software required: just plug it in, connect to Wi-Fi, and take control immediately via the built-in web interface or Home Assistant.
 
-![Hero Shot of the Board]([LINK_TO_YOUR_BOARD_IMAGE])
+![SOON!]([LINK_TO_YOUR_BOARD_IMAGE])
 
 ---
 
@@ -93,11 +93,11 @@ The board is designed for compact SFF (Small Form Factor) environments. Please n
 
 You have two ways to get the board up and running:
 
-### Option A: ESPHome / Home Assistant
+### Option A: ESPHome / Home Assistant SOON!
 Perfect for smart home enthusiasts. Simply flash our pre-configured `.yaml` file to the board, and your fans will automatically appear in Home Assistant.
 👉 [Get the esphome.yaml here](/esphome/fan_controller.yaml)
 
-### Option B: The Standalone Web-Interface
+### Option B: The Standalone Web-Interface SOON!
 Power up the board, and it will open its own Wi-Fi Access Point. Connect to it, enter your local Wi-Fi credentials, and configure your fan curves directly from your browser. 
 👉 [Web-Interface Documentation]([LINK_TO_WIKI_OR_FILE])
 
@@ -125,8 +125,6 @@ Power up the board, and it will open its own Wi-Fi Access Point. Connect to it, 
 
 You can also use a ESP32C6 XIAO. You must mount it upside down (5v, GND, 3,3V Pins must match the board label). And you dont have the full features (because of the missing pins obviously)
 
-![Pinout Diagram]([LINK_TO_PINOUT_IMAGE])
-
 ### The Solder Jumper (Optional Pin vs. Current Sense)
 To maximize the limited GPIOs of the ESP32-S3, the board features a solder jumper (J1):
 * **Position "Default":** H3 Pin4 is one of five Pins for optional hardware (Rotary encode, Button, Sensors).
@@ -137,16 +135,6 @@ Please use a high quality 12v 4a Power supply.
 The board is equipped with a strict **2A hardware limit**. This is more than enough for four standard 120/140mm PC fans running at full speed. Do **not** connect water cooling pumps (like a D5), as their high startup current will immediately trigger the eFuse's 2A limit.
 
 **!!! IMORTANT: UNPLUG THE 12V POWER SUPPLY BEFORE PLUG IN THE USB !!!** 
-
----
-
-## 🛠️ Open Source & Enclosure
-
-Hardware and software are fully open source. Feel free to adapt the code for your own projects. 
-
-* 📁 [Schematic (PDF)](/hardware/schematic.pdf)
-* 🧊 [3D Printable Case (.STL)](/hardware/case.stl)
-* 🧊 [3D Printable Fan (powered by noctua) (.STL)](/hardware/case.stl)
 ---
 
 **If you have any questions or feedback, feel free to open an issue!**
