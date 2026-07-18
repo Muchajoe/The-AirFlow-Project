@@ -1,9 +1,5 @@
 # 💨 THE AIRFLOW PROJECT - ESP32-S3 Smart Fan Controller
 
-[![Tindie](https://img.shields.io/badge/Buy_on-Tindie-blue?logo=tindie)](#)
-[![ESPHome](https://img.shields.io/badge/ESPHome-Compatible-green)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC modding, SFF (Small Form Factor) builds, and smart home integration. Designed with a focus on industrial-grade hardware protection. 
 
 No proprietary desktop software required: just plug it in, connect to Wi-Fi, and take control immediately via the built-in web interface or Home Assistant.
