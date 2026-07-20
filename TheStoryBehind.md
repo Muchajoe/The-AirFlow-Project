@@ -2,13 +2,13 @@
 
 It all started during an extremely hot summer when I desperately needed a fan. While standard fans were fine during the day, the nights were a different story. I am highly sensitive to noise, and the constant humming made it impossible to sleep. I happened to have four spare Noctua fans lying around, which are famous for their whisper-quiet operation and precise speed control.
 
-At the time, I was heavily experimenting with Arduinos and had only just begun exploring the ESP32. Knowing that the fans required a 5V PWM signal and that the Arduino operated on a 5V logic level, I simply hooked it up. It worked—even though, looking back, I probably wasn't hitting the exact required PWM frequency out of that Arduino. But it worked anyways
+At the time, I was heavily experimenting with Arduinos and had only just begun exploring the ESP32. Knowing that the fans required a 5V PWM signal and that the Arduino operated on a 5V logic level, I simply hooked it up. It worked even though, looking back, I probably wasn't hitting the exact required PWM frequency out of that Arduino. But it worked anyways
 
 ### The Catalyst: 3D Printing
 
 Fast forward a few years. Noctua released their Airflow Amplifier (NV-AA1-12) and generously provided the 3D files online. This instantly brought my old summer project back into focus. I took the files, scaled the model up to fit my 140mm fan, and printed it.
 
-However, I wasn’t a fan of the original control setup, which required a external box sitting on my desk. I wanted an elegant, integrated solution.
+However, I was not a fan of the original control setup, which required a external box sitting on my desk. I wanted an elegant, integrated solution.
 
 ### The First Custom PCB
 
