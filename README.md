@@ -2,7 +2,7 @@
 
 An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC modding, SFF (Small Form Factor) builds, and smart home integration. Designed with a focus on industrial-grade hardware protection. 
 
-No proprietary desktop software required: just plug it in, connect to Wi-Fi, and take control immediately via the built-in web interface or Home Assistant.
+No proprietary desktop software required: just plug it in, connect to Wi-Fi, and take control immediately via Home Assistant or with your own Arduino code.
 
 ![SOON!]([LINK_TO_YOUR_BOARD_IMAGE])
 
@@ -92,9 +92,9 @@ You have two ways to get the board up and running:
 Perfect for smart home enthusiasts. Simply flash our pre-configured `.yaml` file to the board, and your fans will automatically appear in Home Assistant.
 👉 [Get the esphome.yaml here](/esphome/fan_controller.yaml)
 
-### Option B: The Standalone Web-Interface SOON!
-Power up the board, and it will open its own Wi-Fi Access Point. Connect to it, enter your local Wi-Fi credentials, and configure your fan curves directly from your browser. 
-👉 [Web-Interface Documentation]([LINK_TO_WIKI_OR_FILE])
+### Option B: The Arduino way SOON!
+Use the code example to understand the hardware logic and write your own code get exactly what you need.
+👉 [Arduin Examples]([LINK_TO_WIKI_OR_FILE])
 
 ---
 
