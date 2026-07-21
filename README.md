@@ -93,7 +93,7 @@ Perfect for smart home enthusiasts. Simply flash our pre-configured `.yaml` file
 👉 [Get the esphome.yaml here](/esphome/fan_controller.yaml)
 
 ### Option B: The Arduino way SOON!
-Use the code example to understand the hardware logic and write your own code get exactly what you need.
+Use the code example to understand the hardware logic and write your own code to get exactly what you need.
 👉 [Arduin Examples]([LINK_TO_WIKI_OR_FILE])
 
 ---
@@ -118,7 +118,7 @@ Use the code example to understand the hardware logic and write your own code ge
 | H4 PIN4   | 4     |:-------------:|:-------------:|
 | H4 PIN3   | 3     |:-------------:|:-------------:|
 
-You can also use a ESP32C6 XIAO. You must mount it upside down (5v, GND, 3,3V Pins must match the board label). And you dont have the full features (because of the missing pins obviously)
+You can also use a ESP32C6 XIAO. You must mount it upside down (5v, GND, 3.3V Pins must match the board labeled 5v, GND, 3.3v). And you dont have the full features (because of the missing pins obviously)
 
 ### The Solder Jumper (Optional Pin vs. Current Sense)
 To maximize the limited GPIOs of the ESP32-S3, the board features a solder jumper (J1):
