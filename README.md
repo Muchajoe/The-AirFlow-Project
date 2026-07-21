@@ -129,6 +129,10 @@ To maximize the limited GPIOs of the ESP32-S3, the board features a solder jumpe
 Please use a high quality 12v 4a Power supply.
 The board is equipped with a strict **2A hardware limit**. This is more than enough for four standard 120/140mm PC fans running at full speed. Do **not** connect water cooling pumps (like a D5), as their high startup current will immediately trigger the eFuse's 2A limit.
 
+### Troubleshooting
+Is something not working? Take a look here
+👉 [Troubleshooting]([Troubleshooting])
+
 **!!! IMORTANT: UNPLUG THE 12V POWER SUPPLY BEFORE PLUG IN THE USB !!!** 
 ---
 
