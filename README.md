@@ -94,7 +94,7 @@ Perfect for smart home enthusiasts. Simply flash our pre-configured `.yaml` file
 
 ### Option B: The Arduino way SOON!
 Use the code example to understand the hardware logic and write your own code to get exactly what you need.
-👉 [Arduin Examples]([/Firmware])
+👉 [Arduin Examples](/Firmware)
 
 ---
 
@@ -131,7 +131,7 @@ The board is equipped with a strict **2A hardware limit**. This is more than eno
 
 ### Troubleshooting
 Is something not working? Take a look here
-👉 [Troubleshooting]([Troubleshooting])
+👉 [Troubleshooting](Troubleshooting)
 
 **!!! IMORTANT: UNPLUG THE 12V POWER SUPPLY BEFORE PLUG IN THE USB !!!** 
 ---
