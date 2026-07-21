@@ -122,8 +122,8 @@ You can also use a ESP32C6 XIAO. You must mount it upside down (5v, GND, 3.3V Pi
 
 ### The Solder Jumper (Optional Pin vs. Current Sense)
 To maximize the limited GPIOs of the ESP32-S3, the board features a solder jumper (J1):
-* **Position "Default":** H3 Pin4 is one of five Pins for optional hardware (Rotary encode, Button, Sensors).
-* **Position "CS" (bridged):** Sacrifices the H3 Pin4, but connects the ESP32 directly to the analog current-sense output of the eFuse for live telemetry and software-based short-circuit detection. IMPORTANT do not connect anything to H3 Pin4 anymore.
+* **Position "Default":** H3 Pin7 is one of five Pins for optional hardware (Rotary encode, Button, Sensors).
+* **Position "CS" (bridged):** Sacrifices the H3 Pin7, but connects the ESP32 directly to the analog current-sense output of the eFuse for live telemetry and software-based short-circuit detection. IMPORTANT do not connect anything to H3 Pin7 anymore.
 
 ### ⚠️ Power Supply Safety Note
 Please use a high quality 12v 4a Power supply.
