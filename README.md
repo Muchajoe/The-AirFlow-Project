@@ -35,7 +35,7 @@ This board features a **socketed MCU design** based on the popular "Zero" form f
 
 * **The Default Powerhouse:** The board is designed around the **ESP32-S3 Zero**, providing massive computing power, Wi-Fi, and Bluetooth 5 (LE) for complex local web interfaces and advanced PID fan control.
 * **Drop-In Upgrades:** The socket is fully pin-compatible with other microcontrollers in the same form factor, such as the **ESP32-C3 Zero** or **ESP32-C6 Zero**.
-* **Next-Gen Smart Home Ready:** By simply swapping the default MCU for an ESP32-C6 Zero, your hardware immediately gains support for **IEEE 802.15.4** wireless standards. This unlocks the physical ability to integrate the controller directly into modern Thread, Matter, or Zigbee mesh networks!
+* **Next-Gen Smart Home Ready:** By simply swapping the default MCU for an ESP32-C6 Zero, your hardware immediately gains support for **IEEE 802.15.4** wireless standards. This unlocks the physical ability to integrate the controller directly into modern power saving mesh networks!
 
 ## 🌊 Advanced PWM Signal Integrity (True 5V Push-Pull)
 
