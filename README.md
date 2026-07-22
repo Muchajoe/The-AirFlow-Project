@@ -54,7 +54,7 @@ No two projects are the same. Whether you are building a standalone desk fan, up
 * **Screw Terminal (KF350-3.5-2P) [Optional]:** The tinkerer's choice. Ideal for bare wires, ferrules, and custom industrial setups.
 * **JST-VH Latching Header (B2P-VH) [Optional]:** A highly secure, locking connector that won't come loose – perfect for custom PC wire harnesses or environments with vibration.
 
-*Note: The board is engineered with a single-sided SMT layout. By keeping all high-end SMD components on the bottom  layer, production costs at JLCPCB are kept efficient, allowing us to deliver an industrial-grade, highly protected board at an accessible price.*
+*Note: The board is engineered with a single-sided SMT layout. By keeping all high-end SMD components on the bottom  layer, production costs at JLCPCB are kept efficient, allowing me to make an industrial-grade, highly protected board at an accessible price.*
 
 
 ## 🛡️ Ultimate Hardware Protection
