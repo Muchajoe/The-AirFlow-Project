@@ -5,15 +5,16 @@ you need a multimeter and your 12v Power supply. Take a look in the Pictures in 
 1. Continuity test
 disconnect your power supply and set your multimeter to continuity test mode. One of your measuring tip stays on the red pont. With the other tip you go from one to another of the blue measuring points. It should have continuity.
 
-[Get the measuring points (Continuity test)](/Troubleshooting/continuity_test.png)
-<img src="/Troubleshooting/continuity_test.png" alt="isolated" width="200"/>
+[Get the measuring points (Continuity test)](/Troubleshooting/continuity_test.png)<br>
+<img src="/Troubleshooting/continuity_test.png" alt="isolated" width="600"/>
 
 
 
 2. Voltage test (do it only if you know what you are doing here)
 Set your multimeter to DC voltage test. Connect your 12v Power suply to your PCB. One of your measuring tip stays on the red pont. With the other tip you go from one to another of the blue measuring points.
 
-[Get the measuring points (Voltage test)](/Troubleshooting/voltage_test.png)
+[Get the measuring points (Voltage test)](/Troubleshooting/voltage_test.png)<br>
+<img src="/Troubleshooting/voltage_test.png" alt="isolated" width="600"/>
 
 | Point 1 | Point 2| Expected value| Possible failure|
 | --------- |:-------------:|:-------------:|:------------:|
