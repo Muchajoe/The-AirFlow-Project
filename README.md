@@ -90,11 +90,11 @@ You have two ways to get the board up and running:
 
 ### Option A: ESPHome / Home Assistant SOON!
 Perfect for smart home enthusiasts. Simply flash our pre-configured `.yaml` file to the board, and your fans will automatically appear in Home Assistant.
-👉 [Get the esphome.yaml here](/Firmware)
+👉 [Get the esphome.yaml here](/Firmware/ESPHome)
 
-### Option B: The Arduino way SOON!
-Use the code example to understand the hardware logic and write your own code to get exactly what you need.
-👉 [Arduin Examples](/Firmware)
+### Option B: The Arduino way
+Use the code example to understand the logic and write your own code to get exactly what you need for your special demand.
+👉 [Arduin Examples](/Firmwar/Arduino)
 
 ---
 
