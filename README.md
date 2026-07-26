@@ -102,21 +102,21 @@ Use the code example to understand the logic and write your own code to get exac
 
 | Board PIN | ESP32S3 PIN| ESP32C3 PIN| ESP32C6 PIN|
 | --------- |:-------------:|:-------------:|:------------:|
-| Enable    | 44     |:-------------:|:-------------:|
-| FAN0      | 13     |:-------------:|:-------------:|
-| RPM0      | 11     |:-------------:|:-------------:|
-| FAN1      | 12    |:-------------:|:-------------:|
-| RPM1      | 10     |:-------------:|:-------------:|
-| FAN2      | 2     |:-------------:|:-------------:|
-| RPM2      | 9     |:-------------:|:-------------:|
-| FAN3      | 1     |:-------------:|:-------------:|
-| RPM3      | 8     |:-------------:|:-------------:|
-| RGB LED   | 21     |:-------------:|:-------------:|
-| H3 PIN6   | 6     |:-------------:|:-------------:|
-| H3 PIN7   | 7     |:-------------:|:-------------:|
-| H4 PIN5   | 5    |:-------------:|:-------------:|
-| H4 PIN4   | 4     |:-------------:|:-------------:|
-| H4 PIN3   | 3     |:-------------:|:-------------:|
+| Enable    | 44     |SOON|SOON|
+| FAN0      | 13     |SOON|SOON|
+| RPM0      | 11     |SOON|SOON|
+| FAN1      | 12     |SOON|SOON|
+| RPM1      | 10     |SOON|SOON|
+| FAN2      | 2      |SOON|SOON|
+| RPM2      | 9      |SOON|SOON|
+| FAN3      | 1      |SOON|SOON|
+| RPM3      | 8      |SOON|SOON|
+| RGB LED   | 21     |SOON|SOON|
+| H3 PIN6   | 6      |SOON|SOON|
+| H3 PIN7   | 7      |SOON|SOON|
+| H4 PIN5   | 5      |SOON|SOON|
+| H4 PIN4   | 4      |SOON|SOON|
+| H4 PIN3   | 3      |SOON|SOON|
 
 You can also use a ESP32C6 XIAO. You must mount it upside down (5v, GND, 3.3V Pins must match the board labeled 5v, GND, 3.3v). And you dont have the full features (because of the missing pins obviously)
 
