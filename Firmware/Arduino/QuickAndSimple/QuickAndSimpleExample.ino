@@ -7,15 +7,14 @@
 #include <esp32-hal-ledc.h>
 #include <Arduino.h>
 
-int enable_pin = 44;   // SSR PIN (to activate/cut the 12v fan power supply)
+const int enable_pin = 44;        // SSR PIN (to activate/cut the 12v fan power supply)
+const int fan0_pwm_pin = 13;      // FAN PWM PINS ESP32S3
+const int fan1_pwm_pin = 12; 
+const int fan2_pwm_pin = 2;  
+const int fan3_pwm_pin = 1;  
 
-int fan0_pwm_pin = 13; // FAN PWM PINS ESP32S3
-int fan1_pwm_pin = 12; //
-int fan2_pwm_pin = 2;  //
-int fan3_pwm_pin = 1;  //
-
-int pwm_frequency = 25000; // SET THE PWM FREQUENCY TO RECOMMENDED 25KHZ
-int pwm_resolution = 8; // SET PWM RESOLUTION
+const int pwm_frequency = 25000; // SET THE PWM FREQUENCY TO RECOMMENDED 25KHZ
+const int pwm_resolution = 8;    // SET PWM RESOLUTION
 
 
 void setup() {

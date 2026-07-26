@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <esp32-hal-ledc.h>
 
 const int led_pin = 21;         
 const int max_brightness = 50;  
