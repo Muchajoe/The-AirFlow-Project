@@ -133,7 +133,7 @@ The board is equipped with a strict **2A hardware limit**. This is more than eno
 Is something not working? Take a look here
 👉 [Troubleshooting](Troubleshooting)
 
-**!!! IMORTANT: UNPLUG THE 12V POWER SUPPLY BEFORE PLUG IN THE USB !!!** 
+**!!! IMORTANT: UNMOUNT THE ESP32 Before USING USB FOR FLASHING !!!** 
 ---
 
 **If you have any questions or feedback, feel free to open an issue!**
