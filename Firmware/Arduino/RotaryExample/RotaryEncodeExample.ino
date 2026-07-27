@@ -18,8 +18,8 @@ const int fan3_pwm_pin = 1;
 const int pwm_frequency = 25000; 
 const int pwm_resolution = 8; 
 
-const int pinA = 3; 
-const int pinB = 4; 
+const int pinA = 4; 
+const int pinB = 3; 
 
 
 volatile long encoderValue = 0;
