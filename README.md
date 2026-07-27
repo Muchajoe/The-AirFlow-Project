@@ -133,7 +133,7 @@ The board is equipped with a strict **2A hardware limit**. This is more than eno
 Is something not working? Take a look here
 👉 [Troubleshooting](Troubleshooting)
 
-**!!!IMORTANT: UNMOUNT THE ESP32 Before USING USB FOR FLASHING!!!**
+**!!! IMORTANT: UNMOUNT THE ESP32 Before USING USB FOR FLASHING !!!**
 If you are using the USB from the mounted ESP32 there could be a Backfeeding. That means in this moment your USB will power up the whole pcb and that could possibly overload your USB Port or damages the ESP32 Hardware. It is strictly recommended to Unmount the ESP32 from the PCB before using the USB for flashing. A OTA update function could be a good solution for this. I am working on that for future revisions to fix this behaivior.
 
 ---
