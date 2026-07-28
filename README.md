@@ -18,6 +18,7 @@ No proprietary desktop software required: just plug it in, connect to Wi-Fi, and
 * **Standardized Connectors:** Equipped with genuine Molex 4-pin headers (47053-1000) featuring friction locks. Fully compatible with all standard 4-pin PWM and 3-pin PC fans out of the box – no proprietary adapters required.
 * **4x M2 Mounting Holes:** Despite the ultra-compact 40x40 mm footprint, the PCB features four precisely placed M2 mounting holes in the corners. Perfectly prepared for custom 3D-printed enclosures, brass standoffs, or direct integration into your custom PC or SFF chassis. Say goodbye to messy double-sided tape!
 * **True Right to Repair (Self-Documenting PCB):** I believe hardware should be repairable. Instead of hiding component identities or forcing you to hunt through digital BOMs, the PCB silkscreen is exhaustively labeled. Every single component features its designator and, where applicable, its exact value printed right next to the pads. If you ever need to probe, modify, or repair the board, the PCB itself is your physical schematic.
+* **One More Thing:** [Maybe there is another possible function with a bit of Tinkering](OneMoreThing.md)
 
 ## 🧰 The "Hacker Header" (DIY Expansion Port)
 
@@ -123,18 +124,18 @@ You can also use a ESP32C6 XIAO. You must mount it upside down (5v, GND, 3.3V Pi
 ### The Solder Jumper (Optional Pin vs. Current Sense)
 To maximize the limited GPIOs of the ESP32-S3, the board features a solder jumper (J1):
 * **Position "Default":** H3 Pin7 is one of five Pins for optional hardware (Rotary encode, Button, Sensors).
-* **Position "CS" (bridged):** Sacrifices the H3 Pin7, but connects the ESP32 directly to the analog current-sense output of the eFuse for live telemetry and software-based short-circuit detection. IMPORTANT do not connect anything to H3 Pin7 anymore.
+* **Position "CS" (bridged):** Sacrifices the H3 Pin7, but connects the ESP32 GPIO7 directly to the analog current-sense output of the eFuse for live telemetry and software-based short-circuit detection. IMPORTANT do not connect anything to H3 Pin7 anymore.
 
 ### ⚠️ Power Supply Safety Note
 Please use a high quality 12v 4a Power supply.
-The board is equipped with a strict **2A hardware limit**. This is more than enough for four standard 120/140mm PC fans running at full speed. Do **not** connect water cooling pumps (like a D5), as their high startup current will immediately trigger the eFuse's 2A limit.
+The board is equipped with a strict **2.5A (FAN CURRENT) hardware limit**. This is more than enough for four standard 120/140mm PC fans running at full speed. Do **not** connect water cooling pumps (like a D5), as their high startup current will immediately trigger the eFuse's 2.5A limit.
 
 ### Troubleshooting
 Is something not working? Take a look here
 👉 [Troubleshooting](Troubleshooting)
 
 **!!! IMORTANT: UNMOUNT THE ESP32 Before USING USB !!!**
-If you are using the USB from the mounted ESP32 there could be a Backfeeding. That means in this moment your USB will power up the whole pcb and that could possibly overload your USB Port or damages the ESP32 Hardware. It is strictly recommended to physically unmount the ESP32 from the PCB before using the USB for flashing. A OTA update function could be a good solution for this. I am working on that for future revisions to fix this behaivior.
+If you are using the USB from the mounted ESP32 there could be a Backfeeding. That means in this moment your USB will power up the whole pcb and that could possibly overload your USB Port or damages the ESP32 Hardware. It is strictly recommended to physically unmount the ESP32 from the PCB before using the USB for flashing. A OTA update function could be a good solution for this. I am working on that for future revisions to fix this behaivior. For newer boards (Rev 2.1) at least disconnect the 12v Power supply.
 
 ---
 
