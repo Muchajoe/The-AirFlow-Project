@@ -29,6 +29,7 @@ The board features an exposed male pin header that grants direct access to the E
 * **5x Free GPIOs:** Fully routable pins ready for your custom physical interfaces.
 * **Limitless Expansion:** Perfect for adding physical rotary encoders for manual speed tuning, tactile buttons, I2C OLED displays, or custom environmental/air quality sensors to trigger your fans automatically.
 * **⚠️ Firmware Note:** Please be aware that this expansion header is provided purely as a hardware playground for tinkerers. These extra pins are *not* implemented in the stock web-interface firmware. They are waiting for you to unleash them via your own custom ESPHome configurations or C++ code!
+<img src="/Hardware/Photo2.png" alt="Photo 2" width="800"/>
 
 ## 🧠 Modular "Bring Your Own Brain" Architecture
 
