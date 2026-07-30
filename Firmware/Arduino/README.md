@@ -1,4 +1,4 @@
-## AExampole Overview
+## Exampole Overview
 # The Quick and Simple
 Is a easy code to make it move. It simply starts the Fans at 100% and waits 10 seconds. Then it set the PWM signal to 0. Some Fans will stop spinning here. Others will continue spinning at the lowest possible speed of the fan. After 1ß seconds the PCB will cut the 12V Power supply to the FANs. That will stop every FAN.
 
