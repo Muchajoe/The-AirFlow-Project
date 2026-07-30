@@ -95,7 +95,7 @@ Perfect for smart home enthusiasts. Simply flash our pre-configured `.yaml` file
 
 ### Option B: The Arduino way
 Use the code example to understand the logic and write your own code to get exactly what you need for your special demand.<br>
-👉 [Arduin Examples](/Firmware/Arduino)
+👉 [Arduino Examples](/Firmware/Arduino)
 
 ---
 
