@@ -4,7 +4,7 @@ An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC m
 
 No proprietary desktop software required: just plug it in, connect to Wi-Fi, and take control immediately via Home Assistant or with your own Arduino code.
 
-<img src="/Images/Hardware/Photo1.png" alt="Arduino step 1" width="800"/>
+<img src="/Hardware/Photo1.png" alt="Photo 1" width="800"/>
 
 ---
 
