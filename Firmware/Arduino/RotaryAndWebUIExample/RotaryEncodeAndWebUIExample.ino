@@ -542,7 +542,7 @@ const char page_index[] PROGMEM = R"rawliteral(
             <div class="value" id="val4">--</div>
         </div>
         <div class="value-box">
-            <div class="label">Watt 5</div>
+            <div class="label">Watt</div>
             <div class="value" id="val5">--</div>
         </div>
         <div class="value-box">
