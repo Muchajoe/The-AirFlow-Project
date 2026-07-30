@@ -7,6 +7,7 @@ In this example you need a rotary encoder. By Spin the rotary you can set a fan 
 
 # Rotary and WebUI Example (proof of concept)
 That includes the Rotary example and adds a WebUi. After flashing this you should be able to connect to a wlan called **"The Airflow Project"** with a password of **"123456789"**. It will also read out the RPM and it will also try to readout the Wattage (that only works if you have bridged the J1 Jumper on the PCB)
+
 <img src="/Images/Arduino_Tutorial/example3.png" alt="Arduino step 1" width="800"/>
 
 
