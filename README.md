@@ -18,7 +18,7 @@ No proprietary desktop software required: just plug it in, connect to Wi-Fi, and
 * **Standardized Connectors:** Equipped with genuine Molex 4-pin headers (47053-1000) featuring friction locks. Fully compatible with all standard 4-pin PWM and 3-pin PC fans out of the box – no proprietary adapters required.
 * **4x M2 Mounting Holes:** Despite the ultra-compact 40x40 mm footprint, the PCB features four precisely placed M2 mounting holes in the corners. Perfectly prepared for custom 3D-printed enclosures, brass standoffs, or direct integration into your custom PC or SFF chassis. Say goodbye to messy double-sided tape!
 * **True Right to Repair (Self-Documenting PCB):** I believe hardware should be repairable. Instead of hiding component identities or forcing you to hunt through digital BOMs, the PCB silkscreen is exhaustively labeled. Every single component features its designator and, where applicable, its exact value printed right next to the pads. If you ever need to probe, modify, or repair the board, the PCB itself is your physical schematic.
-* **One More Thing:** [Maybe there is another possible function with a bit of Tinkering](OneMoreThing.md)
+* **One More Thing:** [If the airflow settles, there could be room for something brighter](OneMoreThing.md)
 
 ## 🧰 The "Hacker Header" (DIY Expansion Port)
 
