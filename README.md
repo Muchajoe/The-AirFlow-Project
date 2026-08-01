@@ -139,6 +139,7 @@ The board is equipped with a strict **2.5A (FAN CURRENT) hardware limit**. This 
 ### Troubleshooting
 Is something not working? Take a look here
 👉 [Troubleshooting](Troubleshooting)
+
 ---
 
 ### Famous and Important last words
