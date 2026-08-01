@@ -143,8 +143,8 @@ Is something not working? Take a look here
 ---
 
 ### Famous and Important last words
-* **REV 2.0:**
-**!!! IMORTANT: UNMOUNT THE ESP32 Before USING USB !!!**
+* **REV 2.0:**<br>
+**!!! IMPORTANT: UNMOUNT THE ESP32 Before USING USB !!!**
 If you are using the USB from the mounted ESP32 there could be a Backfeeding. That means in this moment your USB will power up the whole pcb and that could possibly overload your USB Port or damages the ESP32 Hardware. It is strictly recommended to physically unmount the ESP32 from the PCB before using the USB for flashing. A OTA update function could be a good solution for this. I am working on that for future revisions to fix this behaivior. For newer boards (Rev 2.1) at least disconnect the 12v Power supply.
 
 ---
