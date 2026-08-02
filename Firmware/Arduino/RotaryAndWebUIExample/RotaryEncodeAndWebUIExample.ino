@@ -161,6 +161,9 @@ float AnalogReadOut();
 float kalibriereNullpunkt(int pin);
 
 void setup() {
+  pinMode(enable_pin, OUTPUT); 
+  digitalWrite(enable_pin, LOW);
+
   Serial.begin(115200);
   analogReadResolution(12);
   analogSetAttenuation(ADC_11db);
@@ -173,8 +176,6 @@ void setup() {
   init_fan_pcnt();
 
   rgbLedWrite(led_pin, 0, 0, 0);
-  pinMode(enable_pin, OUTPUT); 
-  digitalWrite(enable_pin, LOW);
 
   ledcAttach(fan0_pwm_pin, pwm_frequency, pwm_resolution); 
   ledcAttach(fan1_pwm_pin, pwm_frequency, pwm_resolution);
