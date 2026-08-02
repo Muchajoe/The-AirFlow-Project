@@ -53,7 +53,7 @@ unsigned long lastUpdate = 0;
 
 const int CS_PIN = 7;             
 const float R_CS = 330.0;         
-const float K_CS = 300.0;          
+const float K_CS = 1000.0;          
 const float SYSTEM_VOLTAGE = 12.0;
 const float I_LIMIT = 2.466;      
 float zero_offset_mv = 0.0;
