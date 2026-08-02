@@ -11,7 +11,7 @@ disconnect your power supply and set your multimeter to continuity test mode. On
 
 
 2. Voltage test (do it only if you know what you are doing here)
-Set your multimeter to DC voltage test. Connect your 12v Power suply to your PCB. One of your measuring tip stays on the red pont. With the other tip you go from one to another of the blue measuring points.
+Set your multimeter to DC voltage test. Connect your 12v Power suply to your PCB. One of your measuring tip stays on the red point. With the other tip you go from one to another of the blue measuring points.
 
 [Get the measuring points (Voltage test)](/Troubleshooting/voltage_test.png)<br>
 <img src="/Troubleshooting/voltage_test.png" alt="isolated" width="800"/>
@@ -25,3 +25,16 @@ Set your multimeter to DC voltage test. Connect your 12v Power suply to your PCB
 | GND      | 5     |5v|Problem with the pcb trace|
 | GND      | 6     |5v|Problem with the pcb trace|
 | GND      | 7     |3.3v|Problem with your ESP32 voltage regulator|
+
+3. Efuse Test
+Set your multimeter to DC voltage test. Connect your 12v Power suply to your PCB. Connect 3.3V (From H4 or H3) with a jumperWire to H2 PIN 44. That switches the Power supply for the Fans on. Than you can measure if the 12v reaches the FAN Connectors.
+
+[Connect the Enable pin to 3.3v (eFuse test)](/Troubleshooting/eFuse_test_1.png)<br>
+<img src="/Troubleshooting/eFuse_test_1.png" alt="isolated" width="800"/><br>
+
+[Get the measuring points (eFuse test)](/Troubleshooting/eFuse_test_2.png)<br>
+<img src="/Troubleshooting/eFuse_test_2.png" alt="isolated" width="800"/>
+
+
+4. Continoous overvoltage Case
+If you accidentally connected a 16-24V power supply, it is highly likely that only the D6 SMF15A diode has blown.
