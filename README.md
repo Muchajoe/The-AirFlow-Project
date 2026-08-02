@@ -47,7 +47,7 @@ To guarantee flawless motor control, this board utilizes a dedicated **CD74HCT12
 
 * **Perfect Square Waves:** Instead of floating, the IC actively drives the signal high (5V) and aggressively pulls it low (GND). This ensures perfectly sharp signal edges and totally eliminates RPM fluctuations or motor clicking.
 * **Modern Industry Standards:** This robust, active signaling approach is designed in accordance with modern high-end cooling standards, perfectly satisfying the strict electrical requirements detailed in [Noctua's PWM Specifications White Paper](https://cdn.noctua.at/media/Noctua_PWM_specifications_white_paper.pdf).
-<img src="/Hardware/Photo_3.png" alt="Photo 3" width="800"/>
+<img src="/Hardware/Photo_3.jpg" alt="Photo 3" width="800"/>
 
 ## 🔌 Flexible Power Input Options
 
@@ -100,6 +100,7 @@ Perfect for smart home enthusiasts. Simply flash our pre-configured `.yaml` file
 ### Option B: The Arduino way
 Use the code example to understand the logic and write your own code to get exactly what you need for your special demand.<br>
 👉 [Arduino Examples](/Firmware/Arduino)
+<img src="/Hardware/Screenshot.png" alt="PCB" width="800"/>
 
 ---
 
