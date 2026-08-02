@@ -36,4 +36,4 @@ Set your multimeter to DC voltage test. Connect your 12v Power suply to your PCB
 <img src="/Troubleshooting/eFuse_test_2.png" alt="isolated" width="800"/>
 
 
-4. **Continoous overvoltage Case** If you accidentally connected a 16-24V power supply, it is highly likely that only the D6 SMF15A diode has blown.
+4. **Continous overvoltage Case** If you accidentally connected a 16-24V power supply, it is highly likely that only the D6 SMF15A diode has blown.
