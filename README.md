@@ -46,7 +46,7 @@ The original Intel 4-pin fan specification from the early 2000s relies on an ope
 To guarantee flawless motor control, this board utilizes a dedicated **CD74HCT125M96** logic buffer to deliver a strict **5V Push-Pull** PWM signal. 
 
 * **Perfect Square Waves:** Instead of floating, the IC actively drives the signal high (5V) and aggressively pulls it low (GND). This ensures perfectly sharp signal edges and totally eliminates RPM fluctuations or motor clicking.
-* **Modern Industry Standards:** This robust, active signaling approach is designed in accordance with modern high-end cooling standards, perfectly satisfying the strict electrical requirements detailed in [Noctua's PWM Specifications White Paper](https://cdn.noctua.at/media/Noctua_PWM_specifications_white_paper.pdf).
+* **Modern Industry Standards:** This robust, active signaling approach is designed in accordance with modern high-end cooling standards, perfectly satisfying the strict electrical requirements detailed in [Noctua's PWM Specifications White Paper](https://cdn.noctua.at/media/Noctua_PWM_specifications_white_paper.pdf).<br>
 <img src="/Hardware/Photo_3.jpg" alt="Photo 3" width="400"/><img src="/Hardware/Rendering_amplifier.png" alt="Photo 3" width="400"/>
 
 ## 🔌 Flexible Power Input Options
