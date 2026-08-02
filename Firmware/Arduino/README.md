@@ -6,7 +6,14 @@ Is a easy code to make it move. It simply starts the Fans at 100% and waits 10 s
 In this example you need a rotary encoder. By Spin the rotary you can set a fan speed. At Zero PWM the logic will cut the 12v automaticly. It also uses the RGB onboard led to indicate the state. Red means that the maximum is arrived. Green means the minimum is arrived. Blue is all inbetween.
 
 ## Rotary and WebUI Example (proof of concept)
-That includes the Rotary example and adds a WebUi. After flashing this you should be able to connect to a wlan called **"The Airflow Project"** with a password of **"123456789"**. It will also read out the RPM and it will also try to readout the Wattage (that only works if you have bridged the J1 Jumper on the PCB)
+That includes the Rotary example and adds a WebUi. After flashing this you should be able to connect to a wlan called **"The Airflow Project"** with a password of **"123456789"**. It will also read out the RPM and it will also try to readout the Wattage (that only works if you have bridged the J1 Jumper on the PCB). If you want to use a rotary encoder:
+| Encoder Pin | Airflow Pin| 
+| --------- |:-------------:|
+| GND    | GND     |
+| + (3.3 or VIN)    | 3.3V     |
+| SW    | 3     |
+| DT    | 4     |
+| CLK   | 5     |
 
 <img src="/Images/Arduino_Tutorial/example3.png" alt="Arduino step 1" width="800"/>
 
