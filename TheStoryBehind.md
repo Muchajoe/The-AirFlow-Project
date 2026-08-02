@@ -2,7 +2,7 @@
 
 It all started during an extremely hot summer when I desperately needed a fan. While standard fans were fine during the day, the nights were a different story. I am highly sensitive to noise, and the constant humming made it impossible to sleep. I happened to have four spare Noctua fans lying around, which are famous for their whisper-quiet operation and precise speed control.
 
-At the time, I was heavily experimenting with Arduinos and had only just begun exploring the ESP32. Knowing that the fans required a 5V PWM signal and that the Arduino operated on a 5V logic level, I simply hooked it up. It worked even though, looking back, I probably wasn't hitting the exact required PWM frequency out of that Arduino. But it worked anyways
+At the time, I was heavily experimenting with Arduinos and had only just begun exploring the ESP32. Knowing that the fans required a 5V PWM signal and that the Arduino operated on a 5V logic level, I simply hooked it up. It worked even though, looking back, I probably wasn't hitting the exact required PWM frequency out of that Arduino. But it worked anyways<br>
 <img src="/Old/Images/PCB3.jpeg" alt="First PCB image 3" width="400"/>
 
 ### The Catalyst: 3D Printing
