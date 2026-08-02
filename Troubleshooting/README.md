@@ -27,7 +27,7 @@ Set your multimeter to DC voltage test. Connect your 12v Power suply to your PCB
 | GND      | 7     |3.3v|Problem with your ESP32 voltage regulator|
 
 3. **Efuse Test**
-Set your multimeter to DC voltage test. Connect your 12v Power suply to your PCB. Connect 3.3V (From H4 or H3) with a jumperWire to H2 PIN 44. That switches the Power supply for the Fans on. Than you can measure if the 12v reaches the FAN Connectors.
+Set your multimeter to DC voltage test. Connect your 12v Power suply to your PCB. Connect 3.3V (From H4 or H3) with a jumperWire to H2 PIN 44. That switches the Power supply for the Fans on. Than you can measure if the 12v reaches the FAN Connectors. You should have 12v on every blue point against the GND. 
 
 [Connect the Enable pin to 3.3v (eFuse test)](/Troubleshooting/eFuse_test_1.png)<br>
 <img src="/Troubleshooting/eFuse_test_1.png" alt="isolated" width="800"/><br>
