@@ -9,7 +9,7 @@ At the time, I was heavily experimenting with Arduinos and had only just begun e
 
 Fast forward a few years. Noctua released their Airflow Amplifier (NV-AA1-12) and generously provided the 3D files online. This instantly brought my old summer project back into focus. I took the files, scaled the model up to fit my 140mm fan, and printed it.
 
-However, I was not a fan of the original control setup, which required a external box sitting on my desk. I wanted an elegant, integrated solution.
+However, I was not a fan of the original control setup, which required a external box sitting on my desk. I wanted an elegant, integrated solution.<br>
 <img src="Old/Images/PCB%20Rendering.png" alt="First PCB Rendering" width="400"/>
 
 
@@ -22,7 +22,7 @@ I set out to design a custom circuit board small enough to fit perfectly into th
 * Maximum flexibility regarding power supply options.
 * Ultra-low power dissipation. After all, the goal was to cool the room, not to generate unnecessary extra heat through inefficient voltage converters.
 
-This became the very first custom PCB I ever designed. I placed the order, and when the boards finally arrived, I quickly realized there were two major design flaws. Fortunately, I managed to get them running for my own use with a few creative workarounds.
+This became the very first custom PCB I ever designed. I placed the order, and when the boards finally arrived, I quickly realized there were two major design flaws. Fortunately, I managed to get them running for my own use with a few creative workarounds.<br>
 <img src="/Old/Images/PCB.jpeg" alt="First PCB image" width="400"/>
 
 ### Evolution and Refinement
