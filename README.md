@@ -1,6 +1,6 @@
 # 💨 THE AIRFLOW PROJECT - ESP32-S3 Smart Fan Controller
 
-An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC modding, SFF (Small Form Factor) builds, and smart home integration. Designed with a focus on industrial-grade hardware protection. 
+An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC modding, SFF (Small Form Factor) builds, and smart home integration. Designed with a focus on industrial-grade hardware protection. **Please read this attentive!**
 
 No proprietary desktop software required: just plug it in, connect to Wi-Fi, and take control immediately via Home Assistant or with your own Arduino code.
 
@@ -135,7 +135,7 @@ To maximize the limited GPIOs of the ESP32-S3, the board features a solder jumpe
 
 ### ⚠️ Power Supply Safety Note
 Please use a high quality 12v 4a Power supply.
-The board is equipped with a strict **2.5A (FAN CURRENT) hardware limit**. This is more than enough for four standard 120/140mm PC fans running at full speed. Do **not** connect water cooling pumps (like a D5), as their high startup current will immediately trigger the eFuse's 2.5A limit.
+The board is equipped with a strict **2.5A (FAN CURRENT) hardware limit**. This is more than enough for four standard 120/140mm PC fans running at full speed. Do **not** connect water cooling pumps (like a D5), as their high startup current will immediately trigger the eFuse's 2.5A limit. **If you are using the DC005, keep in mind that this connector supports only up to 2.5 amps.**
 
 ### Troubleshooting
 Is something not working? Take a look here
