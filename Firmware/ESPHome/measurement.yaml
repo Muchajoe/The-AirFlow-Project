@@ -1,0 +1,74 @@
+globals:
+  - id: zero_offset_mv
+    type: float
+    initial_value: '0.0'
+
+esphome:
+  name: smart-fan-controller
+  
+  # NEU: Das Boot-Skript für die Kalibrierung
+  on_boot:
+    priority: 250 
+    then:
+      - lambda: |-
+          ESP_LOGI("stromsensor", "Kalibriere ADC Nullpunkt...");
+          uint32_t sum = 0;
+          
+          for (int i = 0; i < 50; i++) {
+            sum += analogReadMilliVolts(7); // Pin 7 direkt auslesen
+            delay(5); 
+          }
+          
+          id(zero_offset_mv) = sum / 50.0;
+          ESP_LOGI("stromsensor", "Fertig! Grundrauschen liegt bei %.1f mV", id(zero_offset_mv));
+
+sensor:
+  # ... hier stehen deine bisherigen RPM-Sensoren ...
+
+  # NEU: Der Stromverbrauch Sensor
+  - platform: template
+    name: "System Power Consumption"
+    id: system_power
+    unit_of_measurement: "W"
+    device_class: "power"
+    state_class: "measurement"
+    update_interval: 1s # Wie oft der Sensor aktualisiert werden soll
+    lambda: |-
+      // Deine Konstanten (Pin 7 ist im Code direkt eingetragen)
+      const float R_CS = 330.0;        
+      const float K_CS = 500.0;          
+      const float SYSTEM_VOLTAGE = 12.0;
+      const float I_LIMIT = 2.466;   
+      const float BOARD_CALIBRATION = 1.087;
+      
+      uint32_t sum_mv = 0;
+      const int NUM_SAMPLES = 10;
+      
+      // 10 Samples auslesen
+      for (int i = 0; i < NUM_SAMPLES; i++) {
+        sum_mv += analogReadMilliVolts(7);
+        delay(2);
+      }
+      
+      // Durchschnitt berechnen
+      float raw_mv = (sum_mv / (float)NUM_SAMPLES);
+      
+      // Nullpunkt abziehen (die globale Variable)
+      float corrected_mv = raw_mv - id(zero_offset_mv);
+      
+      if (corrected_mv < 0.0) {
+        corrected_mv = 0.0;
+      }
+      
+      // Spannungs- und Strom-Berechnung
+      float v_cs = corrected_mv / 1000.0;
+      float current_A = ((v_cs / R_CS) * K_CS) * BOARD_CALIBRATION;
+      float power_W = current_A * SYSTEM_VOLTAGE;
+
+      // Warnung ins Log ausgeben
+      if (current_A >= (I_LIMIT - 0.05)) {
+        ESP_LOGW("stromsensor", "⚠️ WARNUNG: HARDWARE-STROMBEGRENZUNG AKTIV! (%.2f A)", current_A);
+      }
+
+      // Der Rückgabewert wird der neue Wert des Sensors im Dashboard
+      return power_W;
