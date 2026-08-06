@@ -5,20 +5,38 @@ sensor:
   - platform: rotary_encoder
     name: "Fan Speed Encoder"
     id: rotary_encoder_speed
-    pin_a: 5  # CLK an Pin 5
-    pin_b: 4  # DT an Pin 4
-    
-    # Optional: Begrenze die Werte direkt, z.B. von 0 bis 100 (für Prozent)
+    pin_a: 5
+    pin_b: 4
     min_value: 0
     max_value: 100
-    
-    # Optional: Verhindert, dass der Wert bei jedem 'Klick' des Rades um 2 oder 4 springt
     resolution: 1
     
-    # Hier kannst du später festlegen, was beim Drehen passieren soll:
-    # on_value:
-    #   then:
-    #     - logger.log: "Es wurde gedreht!"
+    on_value:
+      then:
+        - if:
+            # Wenn der Regler auf 0 steht, schalte die Lüfter offiziell AUS
+            condition:
+              lambda: 'return x == 0;'
+            then:
+              - fan.turn_off: fan0
+              - fan.turn_off: fan1
+              - fan.turn_off: fan2
+              - fan.turn_off: fan3
+            
+            # Ansonsten schalte sie EIN und setze die Geschwindigkeit auf den Wert
+            else:
+              - fan.turn_on:
+                  id: fan0
+                  speed: !lambda 'return x;'
+              - fan.turn_on:
+                  id: fan1
+                  speed: !lambda 'return x;'
+              - fan.turn_on:
+                  id: fan2
+                  speed: !lambda 'return x;'
+              - fan.turn_on:
+                  id: fan3
+                  speed: !lambda 'return x;'
 
 binary_sensor:
   # ==========================================
@@ -28,17 +46,23 @@ binary_sensor:
     name: "Rotary Button"
     id: rotary_button
     pin:
-      number: 3  # SW an Pin 3
+      number: 3
+      inverted: true
       mode:
         input: true
-        pullup: true  # Extrem wichtig! Aktiviert den internen Widerstand des ESP32
+        pullup: true
     
-    # Hardware-Entprellung, damit ein einzelner Klick nicht versehentlich doppelt auslöst
     filters:
       - delayed_on: 10ms
       - delayed_off: 10ms
       
-    # Hier kannst du später Aktionen für den Klick hinterlegen (z.B. Alle Lüfter auf 100% / 0%)
-    # on_press:
-    #   then:
-    #     - logger.log: "Button gedrückt!"
+    # Beim Klicken: Alle Lüfter AUS und den Encoder auf 0 zurücksetzen
+    on_press:
+      then:
+        - fan.turn_off: fan0
+        - fan.turn_off: fan1
+        - fan.turn_off: fan2
+        - fan.turn_off: fan3
+        - sensor.rotary_encoder.set_value:
+            id: rotary_encoder_speed
+            value: 0
