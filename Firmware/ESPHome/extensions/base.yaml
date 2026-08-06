@@ -132,7 +132,7 @@ binary_sensor:
         input: true
         pullup: true
     id: boot_button
-    name: "Boot Button"
+    name: "Reset"
     filters:
       - delayed_on: 5s
     on_press:
