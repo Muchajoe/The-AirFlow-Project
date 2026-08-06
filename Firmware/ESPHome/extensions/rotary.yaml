@@ -1,1 +1,44 @@
-SOON
+sensor:
+  # ==========================================
+  # DREHREGLER (Rotation)
+  # ==========================================
+  - platform: rotary_encoder
+    name: "Fan Speed Encoder"
+    id: rotary_encoder_speed
+    pin_a: 5  # CLK an Pin 5
+    pin_b: 4  # DT an Pin 4
+    
+    # Optional: Begrenze die Werte direkt, z.B. von 0 bis 100 (für Prozent)
+    min_value: 0
+    max_value: 100
+    
+    # Optional: Verhindert, dass der Wert bei jedem 'Klick' des Rades um 2 oder 4 springt
+    resolution: 1
+    
+    # Hier kannst du später festlegen, was beim Drehen passieren soll:
+    # on_value:
+    #   then:
+    #     - logger.log: "Es wurde gedreht!"
+
+binary_sensor:
+  # ==========================================
+  # DRUCKTASTER (Push-Button)
+  # ==========================================
+  - platform: gpio
+    name: "Rotary Button"
+    id: rotary_button
+    pin:
+      number: 3  # SW an Pin 3
+      mode:
+        input: true
+        pullup: true  # Extrem wichtig! Aktiviert den internen Widerstand des ESP32
+    
+    # Hardware-Entprellung, damit ein einzelner Klick nicht versehentlich doppelt auslöst
+    filters:
+      - delayed_on: 10ms
+      - delayed_off: 10ms
+      
+    # Hier kannst du später Aktionen für den Klick hinterlegen (z.B. Alle Lüfter auf 100% / 0%)
+    # on_press:
+    #   then:
+    #     - logger.log: "Button gedrückt!"

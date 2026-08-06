@@ -14,8 +14,7 @@ wifi:
 
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  ap_timeout: 10s
-  
+
   ap:
     ssid: "TheAirFlowProject"
     password: "123456789"
@@ -36,15 +35,17 @@ logger:
 # ==========================================
 packages:
   # 1. Das Grundsystem (Immer erforderlich!)
-  base_system: github://Muchajoe/The-AirFlow-Project/Firmware/ESPHome/extensions/base.yaml
-  #refresh: 1s
-  # 2. Strommessung & Hardware-Schutz
-  # measurement_addon:
-  #   url: github://DEIN_GITHUB_NAME/DEIN_REPO_NAME/esphome/measurement.yaml
-  #   refresh: 1d
+  base_system:
+    url: https://github.com/Muchajoe/The-AirFlow-Project
+    file: Firmware/ESPHome/extensions/base.yaml
+    refresh: 0s
 
-  # 3. Physischer Drehregler
-  # rotary_addon:
-  #   url: github://DEIN_GITHUB_NAME/DEIN_REPO_NAME/esphome/rotary.yaml
-  rotary_encoder: github://Muchajoe/The-AirFlow-Project/Firmware/ESPHome/extensions/measurement.yaml
-  #   refresh: 1d
+  rotary:
+    url: https://github.com/Muchajoe/The-AirFlow-Project
+    file: Firmware/ESPHome/extensions/rotary.yaml.yaml
+    refresh: 0s
+    
+  measurement:
+    url: https://github.com/Muchajoe/The-AirFlow-Project
+    file: Firmware/ESPHome/extensions/measurement.yaml
+    refresh: 0s
