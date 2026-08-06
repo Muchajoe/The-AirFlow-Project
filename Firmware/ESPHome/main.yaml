@@ -30,21 +30,23 @@ api:
 logger:
 
 # ==========================================
-# HARDWARE KONFIGURATION
-# Entferne das '#' vor den Modulen, die du aktivieren möchtest:
+# HARDWARE CONFIGURATION
+# Uncomment the modules you want to enable:
 # ==========================================
 packages:
-  # 1. Das Grundsystem (Immer erforderlich!)
+  #Base system (Always required!)
   base_system:
     url: https://github.com/Muchajoe/The-AirFlow-Project
     file: Firmware/ESPHome/extensions/base.yaml
     refresh: 0s
 
+  #Physical Rotary Encoder (Pins: CLK -> 5 | DT -> 4 | SW (Button) -> 3)
   #rotary:
     #url: https://github.com/Muchajoe/The-AirFlow-Project
     #file: Firmware/ESPHome/extensions/rotary.yaml
     #refresh: 0s
     
+  #Power Measurement Requires J1 to be solder-bridged. This reserves H3 Pin 7
   #measurement:
     #url: https://github.com/Muchajoe/The-AirFlow-Project
     #file: Firmware/ESPHome/extensions/measurement.yaml
