@@ -20,13 +20,13 @@ wifi:
     password: "123456789"
 
 captive_portal:
+ota:
   
 web_server:
   port: 80
   local: true
 
 api:
-ota:
 logger:
 
 # ==========================================
@@ -40,12 +40,12 @@ packages:
     file: Firmware/ESPHome/extensions/base.yaml
     refresh: 0s
 
-  rotary:
-    url: https://github.com/Muchajoe/The-AirFlow-Project
-    file: Firmware/ESPHome/extensions/rotary.yaml
-    refresh: 0s
+  #rotary:
+    #url: https://github.com/Muchajoe/The-AirFlow-Project
+    #file: Firmware/ESPHome/extensions/rotary.yaml
+    #refresh: 0s
     
-  measurement:
-    url: https://github.com/Muchajoe/The-AirFlow-Project
-    file: Firmware/ESPHome/extensions/measurement.yaml
-    refresh: 0s
+  #measurement:
+    #url: https://github.com/Muchajoe/The-AirFlow-Project
+    #file: Firmware/ESPHome/extensions/measurement.yaml
+    #refresh: 0s
