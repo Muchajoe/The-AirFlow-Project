@@ -23,7 +23,7 @@ esphome:
 sensor:
   # NEU: Der Stromverbrauch Sensor
   - platform: template
-    name: "System Power Consumption"
+    name: "Fan Power Consumption"
     id: system_power
     unit_of_measurement: "W"
     device_class: "power"
