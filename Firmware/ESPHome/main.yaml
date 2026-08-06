@@ -42,7 +42,7 @@ packages:
 
   rotary:
     url: https://github.com/Muchajoe/The-AirFlow-Project
-    file: Firmware/ESPHome/extensions/rotary.yaml.yaml
+    file: Firmware/ESPHome/extensions/rotary.yaml
     refresh: 0s
     
   measurement:
