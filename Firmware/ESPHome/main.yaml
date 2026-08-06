@@ -31,7 +31,7 @@ logger:
 
 # ==========================================
 # HARDWARE CONFIGURATION
-# Uncomment the modules you want to enable:
+# Uncomment the modules you want to enable by removing the #:
 # ==========================================
 packages:
   #Base system (Always required!)
