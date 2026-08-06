@@ -53,7 +53,7 @@ To guarantee flawless motor control, this board utilizes a dedicated **CD74HCT12
 
 No two projects are the same. Whether you are building a standalone desk fan, upgrading a 3D printer, or wiring a custom server rack, you can choose the 12V power input connector that fits your needs:
 
-* **DC Barrel Jack (DC005) [Default]:** The classic 5.5x2.1mm plug. Perfect for standard 12V wall power adapters.
+* **DC Barrel Jack (~~DC005~~ PJ-002AH) [Default]:** The classic 5.5x2.1mm plug. Perfect for standard 12V wall power adapters.
 * **Screw Terminal (KF350-3.5-2P) [Optional]:** The tinkerer's choice. Ideal for bare wires, ferrules, and custom industrial setups.
 * **JST-VH Latching Header (B2P-VH) [Optional]:** A highly secure, locking connector that won't come loose – perfect for custom PC wire harnesses or environments with vibration.
 
