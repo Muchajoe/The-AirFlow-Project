@@ -100,7 +100,7 @@ Perfect for smart home enthusiasts. Simply flash our pre-configured `.yaml` file
 ### Option B: The Arduino way
 Use the code example to understand the logic and write your own code to get exactly what you need for your special demand.<br>
 👉 [Arduino Examples](/Firmware/Arduino)<br>
-<img src="/Hardware/Screenshot.png" alt="PCB" width="800"/>
+<img src="/Hardware/Screenshot.png" alt="PCB" width="400"/>
 
 ---
 
