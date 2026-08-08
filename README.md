@@ -158,6 +158,6 @@ If you are using the USB from the mounted ESP32 there could be a Backfeeding. Th
 
 This project uses a split-licensing model to keep the software open for the community while protecting the hardware design.
 
-*   **Software / Firmware:** Released under the [MIT License](LICENSE).
+*   **Software / Firmware:** Released under the [MIT License](LICENSE-SOFTWARE).
 *   **Hardware Design (Schematics):** Released under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/) License. You may view and study the schematics, but you may not modify them or use them for commercial purposes without explicit permission.
 *   **Media:** All photos, graphics, and logos in this repository are **All Rights Reserved** and may not be used commercially or to promote derivative hardware projects.
