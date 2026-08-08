@@ -1,5 +1,5 @@
 # ==========================================
-# POWER SUPPLY ENABLE LOGIK
+# POWER SUPPLY ENABLE LOGIC
 # ==========================================
 switch:
   - platform: gpio
@@ -8,7 +8,7 @@ switch:
     name: "Power Supply Enable"
     restore_mode: ALWAYS_OFF
 # ==========================================
-# POWER SUPPLY ENABLE LOGIK
+# POWER SUPPLY ENABLE LOGIC
 # ==========================================
 interval:
   - interval: 250ms
@@ -26,7 +26,7 @@ interval:
             - switch.turn_off: psu_enable
 
 # ==========================================
-# LÜFTER PWM OUTPUTS
+# FAN PWM OUTPUTS
 # ==========================================
 output:
   - platform: ledc
@@ -47,7 +47,7 @@ output:
     frequency: 25000 Hz
 
 # ==========================================
-# LÜFTER ENTITÄTEN
+# FAN ENTITIES
 # ==========================================
 fan:
   - platform: speed
@@ -68,7 +68,7 @@ fan:
     id: fan3
 
 # ==========================================
-# RPM SENSOREN
+# RPM SENSORS
 # ==========================================
 sensor:
   - platform: pulse_counter
@@ -78,7 +78,7 @@ sensor:
     unit_of_measurement: "RPM"
     update_interval: 5s
     filters:
-      - multiply: 0.5 # 2 Pulse pro Umdrehung
+      - multiply: 0.5
   - platform: pulse_counter
     pin: 10
     name: "Fan 1 RPM"

@@ -4,7 +4,6 @@ globals:
     initial_value: '0.0'
 
 esphome:
-  # KEIN 'name:' hier! Der Name wird aus der Hauptdatei übernommen.
   on_boot:
     - priority: 250 
       then:
@@ -21,7 +20,6 @@ esphome:
             ESP_LOGI("stromsensor", "Fertig! Grundrauschen liegt bei %.1f mV", id(zero_offset_mv));
 
 sensor:
-  # NEU: Der Stromverbrauch Sensor
   - platform: template
     name: "Fan Power Consumption"
     id: system_power
@@ -39,30 +37,30 @@ sensor:
       uint32_t sum_mv = 0;
       const int NUM_SAMPLES = 10;
       
-      // 10 Samples auslesen
+      // 10 Samples
       for (int i = 0; i < NUM_SAMPLES; i++) {
         sum_mv += analogReadMilliVolts(7);
         delay(2);
       }
       
-      // Durchschnitt berechnen
+      // Calculate average
       float raw_mv = (sum_mv / (float)NUM_SAMPLES);
       
-      // Nullpunkt abziehen (die globale Variable)
+      // Set Zero
       float corrected_mv = raw_mv - id(zero_offset_mv);
       
       if (corrected_mv < 0.0) {
         corrected_mv = 0.0;
       }
       
-      // Spannungs- und Strom-Berechnung
+      // Voltage/Current calculation
       float v_cs = corrected_mv / 1000.0;
       float current_A = ((v_cs / R_CS) * K_CS) * BOARD_CALIBRATION;
       float power_W = current_A * SYSTEM_VOLTAGE;
 
       // Warnung ins Log ausgeben
       if (current_A >= (I_LIMIT - 0.05)) {
-        ESP_LOGW("stromsensor", "⚠️ WARNUNG: HARDWARE-STROMBEGRENZUNG AKTIV! (%.2f A)", current_A);
+        ESP_LOGW("currentsensor", "HARDWARE CURRENT LIMIT ACTIV (%.2f A)", current_A);
       }
 
       return power_W;
