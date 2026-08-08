@@ -79,10 +79,10 @@ void IRAM_ATTR isr_encoder() {
 void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length) {
   switch(type) {
     case WStype_DISCONNECTED:
-      Serial.printf("[%u] Client getrennt\n", num);
+      Serial.printf("[%u] Client disconnected\n", num);
       break;
     case WStype_CONNECTED:
-      Serial.printf("[%u] Client verbunden!\n", num);
+      Serial.printf("[%u] Client connected!\n", num);
       {
         String initMsg = "{\"slider\":" + String(encoderValue) + "}";
         webSocket.sendTXT(num, initMsg);
@@ -90,7 +90,7 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length
       break;
     case WStype_TEXT:
       String msg = (char*)payload;
-      Serial.printf("[%u] Nachricht empfangen: %s\n", num, msg.c_str());
+      Serial.printf("[%u] Message recieved: %s\n", num, msg.c_str());
       
       if (msg.indexOf("\"slider\":") > 0) {
         int index = msg.indexOf(":");
@@ -98,7 +98,7 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length
         valStr.replace("\"", "");
         int sliderVal = valStr.toInt();
 
-        Serial.print("Neuer Slider-Wert empfangen: ");
+        Serial.print("New  Slider-Value recieved: ");
         Serial.println(sliderVal);
 
         encoderValue = sliderVal;
@@ -208,7 +208,7 @@ void loop() {
 
     webSocket.broadcastTXT(jsonString);
     
-    Serial.print("Encoder geändert auf: ");
+    Serial.print("Encoder changed to: ");
     Serial.println(currentValue);
   }
 
@@ -287,7 +287,7 @@ void WlanConnect(){
   String savedSSID = WiFi.SSID();
   
   if (savedSSID.length() > 0) {
-    Serial.print("NVS-Daten gefunden. Versuche Verbindung mit: ");
+    Serial.print("NVS-Data Found. Try to connect: ");
     Serial.println(savedSSID);
     WiFi.begin(); 
     
@@ -299,16 +299,16 @@ void WlanConnect(){
     }
     Serial.println();
   } else {
-    Serial.println("NVS ist leer: Keine gespeicherten Wi-Fi Credentials gefunden.");
+    Serial.println("NVS is empty: No Wi-Fi Credentials found.");
   }
 
   if (WiFi.status() == WL_CONNECTED) {
-    Serial.println("✅ Erfolgreich mit dem WLAN verbunden!");
-    Serial.print("Lokale IP-Adresse: ");
+    Serial.println("✅ WIFI CONNECTED");
+    Serial.print("IP-Adress: ");
     Serial.println(WiFi.localIP());
   } else {
-    Serial.println("❌ Verbindung fehlgeschlagen oder keine Daten vorhanden.");
-    Serial.println("Starte Fallback: Access Point (AP) Modus...");
+    Serial.println("❌ WIFI NOT CONNECTED");
+    Serial.println("Start Fallback: Access Point (AP)");
 
     delay(100);
     WiFi.disconnect(true, false);
@@ -317,7 +317,7 @@ void WlanConnect(){
     delay(100);
     
     if (WiFi.softAP(ap_ssid, ap_pass)) {
-      Serial.println("✅ Access Point erfolgreich gestartet.");
+      Serial.println("✅ Access Point started");
       Serial.print("AP SSID: ");
       Serial.println(ap_ssid);
       Serial.print("AP IP: ");
@@ -335,14 +335,14 @@ ESP.restart();
 }
 
 void WlanAdd(String InputSSID, String InputPasswort) {
-    Serial.println("\n--- Starte WLAN-Wechsel ---");
+    Serial.println("\n--- Change WLAN mode ---");
     
     WiFi.mode(WIFI_STA);
     delay(100);
     WiFi.disconnect(true, false);
     delay(100);
     
-    Serial.print("Verbinde mit neuem WLAN: ");
+    Serial.print("Connect to WLAN: ");
     Serial.println(InputSSID);
     
 
@@ -358,14 +358,14 @@ void WlanAdd(String InputSSID, String InputPasswort) {
     
 
     if (WiFi.status() == WL_CONNECTED) {
-        Serial.println("✅ Erfolgreich verbunden! Daten sind nun sicher im NVS.");
+        Serial.println("✅ WIFI CONNECTED");
         delay(1000);
         
-        Serial.println("Starte Board neu...");
+        Serial.println("Restart ESP");
         ESP.restart();
     } else {
-        Serial.println("❌ Verbindung fehlgeschlagen! Falsches Passwort oder SSID?");
-        Serial.println("Starte Access Point wieder...");
+        Serial.println("❌ WIFI NOT CONNECTED");
+        Serial.println("Restart AP");
         WiFi.mode(WIFI_AP);
 
     }
@@ -386,33 +386,33 @@ server.on("/", HTTP_GET, []() {
   });
 
   server.onNotFound([]() {
-    server.send(404, "text/plain", "404: Seite nicht gefunden");
+    server.send(404, "text/plain", "404: NOT FOUND");
   });
 
   server.on("/save", HTTP_POST, []() {
     if (!server.hasArg("ssid") || !server.hasArg("password")) {
-      server.send(400, "text/plain", "Fehler: SSID oder Passwort fehlen!");
+      server.send(400, "text/plain", "SSID or Password");
       return;
     }
 
     pendingSSID = server.arg("ssid");
     pendingPass = server.arg("password");
 
-    Serial.println("Neue WLAN-Daten empfangen:");
+    Serial.println("Neue WLAN-Data recieved:");
     Serial.print("SSID: ");
     Serial.println(pendingSSID);
     Serial.print("Passwort: ");
     Serial.println(pendingPass);
 
     String htmlResponse = "<!DOCTYPE HTML><html><head><meta charset=\"UTF-8\"></head>";
-    htmlResponse += "<body><h1>Gespeichert!</h1><p>Der ESP startet nun neu und verbindet sich.</p></body></html>";
+    htmlResponse += "<body><h1>Gespeichert!</h1><p>THE ESP RESARTS AND RECONNECTS NOW</p></body></html>";
     server.send(200, "text/html", htmlResponse);
 
     new_wlan_data_recieved = true;
   });
 
   server.begin();
-  Serial.println("Webserver erfolgreich gestartet.");
+  Serial.println("Webserver started");
 }
 
 void init_fan_pcnt() {
@@ -466,14 +466,14 @@ float AnalogReadOut(){
   float power_W = current_A * SYSTEM_VOLTAGE;
 
   if (current_A >= (I_LIMIT - 0.05)) {
-    Serial.println("⚠️ WARNUNG: HARDWARE-STROMBEGRENZUNG AKTIV!");
+    Serial.println("⚠️ CURRENT LIMIT ACTICE");
   }
 
   return power_W;
 }
 
 float kalibriereNullpunkt(int pin) {
-  Serial.print("Kalibriere ADC Nullpunkt...");
+  Serial.print("Calibrate zero");
   uint32_t sum = 0;
   
   for (int i = 0; i < 50; i++) {
@@ -482,7 +482,7 @@ float kalibriereNullpunkt(int pin) {
   }
   
   float offset = sum / 50.0;
-  Serial.printf(" Fertig! Grundrauschen liegt bei %.1f mV\n", offset);
+  Serial.printf(" Done %.1f mV\n", offset);
   return offset;
 }
 
