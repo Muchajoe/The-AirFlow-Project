@@ -124,7 +124,7 @@ Use the code example to understand the logic and write your own code to get exac
 | H4 PIN4   | 4      |SOON|SOON|
 | H4 PIN3   | 3      |SOON|SOON|
 
-You can also use a ESP32C6 XIAO. You must mount it upside down (5v, GND, 3.3V Pins must match the board labeled 5v, GND, 3.3v). And you dont have the full features (because of the missing pins obviously)
+It may be possible to use a ESP32C6 XIAO. You must mount it upside down (5v, GND, 3.3V Pins must match the board labeled 5v, GND, 3.3v). And you dont have the full features (because of the missing pins obviously)
 <img src="/Hardware/PCB Bottom.png" alt="PCB Bottom" width="800"/>
 
 ### The Solder Jumper (Optional Pin vs. Current Sense)
