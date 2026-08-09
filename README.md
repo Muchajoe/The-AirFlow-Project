@@ -112,7 +112,7 @@ Use the code example to understand the logic and write your own code to get exac
 ## 🔌 Hardware & Pinout
 # Hardware
 You will find the whole component list here (Bill of materials (BOM))<br>
-👉 [BOM](/Hardware/bom.md)<br><br>
+👉 [BOM](/Hardware/README.md)<br><br>
 
 # Pinout<br>
 
