@@ -29,6 +29,7 @@
 <img src="/Images/ESPHome_Tutorial/9.jpg" alt="ESPHome step 9" width="800"/><br><br>
 
 **10** Go to the Yaml file here on Github (new TAB) and copy that to the clipboard by clicking the "COPY"<br>
+[![Home Assistant](https://img.shields.io/badge/Home_Assistant-YAML-41BDF5?logo=homeassistant&logoColor=white.svg)](/Firmware/ESPHome/main.yaml)<br>
 <img src="/Images/ESPHome_Tutorial/10.jpg" alt="ESPHome step 10" width="800"/><br><br>
 
 **11** Go back to the configuration. Select and delete the whole text<br>
