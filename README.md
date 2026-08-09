@@ -110,6 +110,11 @@ Use the code example to understand the logic and write your own code to get exac
 ---
 
 ## 🔌 Hardware & Pinout
+# Hardware
+You will find the whole component list here (Bill of materials (BOM))<br>
+👉 [BOM](/Hardware/bom.md)<br><br>
+
+# Pinout<br>
 
 | Board PIN | ESP32S3 PIN| ESP32C3 PIN| ESP32C6 PIN|
 | --------- |:-------------:|:-------------:|:------------:|
