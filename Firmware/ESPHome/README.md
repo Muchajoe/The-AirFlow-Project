@@ -28,7 +28,7 @@
 **9** Put in any name it does not matter because that will be overwritten later. Continue by clicking "FINISH SETUP"<br>
 <img src="/Images/ESPHome_Tutorial/9.jpg" alt="ESPHome step 9" width="800"/><br><br>
 
-**10** Go to the Yaml file here on Github (new TAB) and copy that to the clipboard by clicking the "COPY"<br>
+**10** Open the Yaml file here on Github in a new tab and copy that to the clipboard by clicking the "COPY"<br>
 [![Home Assistant](https://img.shields.io/badge/Home_Assistant-YAML-41BDF5?logo=homeassistant&logoColor=white.svg)](/Firmware/ESPHome/main.yaml)<br>
 <img src="/Images/ESPHome_Tutorial/10.jpg" alt="ESPHome step 10" width="800"/><br><br>
 
