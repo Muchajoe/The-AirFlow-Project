@@ -1,4 +1,5 @@
 # HomeAssistant Tutorial
+[![Home Assistant](https://img.shields.io/badge/GET_YAML_HERE-41BDF5?logo=homeassistant&logoColor=white.svg)](/Firmware/ESPHome/main.yaml)
 
 **1** Go to you HomeAssistant. Open the "SETTINGS" and click on "APPS".<br>
 <img src="/Images/ESPHome_Tutorial/1.jpg" alt="ESPHome step 1" width="800"/><br><br>
