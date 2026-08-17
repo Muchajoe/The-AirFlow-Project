@@ -17,7 +17,7 @@ wifi:
 
   ap:
     ssid: "TheAirFlowProject"
-    password: "123456789"
+    password: "TheAirFlowSetup"
 
 captive_portal:
 ota:
