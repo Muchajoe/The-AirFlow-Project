@@ -7,7 +7,7 @@
 #include <WebSocketsServer.h> // You have to install the Websockets lib by Markus Sattler (ver 2.7.2) https://github.com/Links2004/arduinoWebSockets
 
 const char* ap_ssid = "The Airflow Project";
-const char* ap_pass = "123456789";
+const char* ap_pass = "TheAirFlowSetup";
 bool new_wlan_data_recieved = false;
 String pendingSSID = "";
 String pendingPass = "";
