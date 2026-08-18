@@ -63,7 +63,7 @@ No two projects are the same. Whether you are building a standalone desk fan, up
 * **Screw Terminal (KF350-3.5-2P) [Optional]:** The tinkerer's choice. Ideal for bare wires, ferrules, and custom industrial setups.
 * **JST-VH Latching Header (B2P-VH) [Optional]:** A highly secure, locking connector that won't come loose – perfect for custom PC wire harnesses or environments with vibration.
 
-*Note: The board is engineered with a single-sided SMT layout. By keeping all high-end SMD components on the bottom  layer, production costs at JLCPCB are kept efficient, allowing me to make an industrial-grade, highly protected board at an accessible price.*<br>
+*Note: The board is engineered with a single-sided SMT layout.*<br>
 <img src="/Hardware/Photo_7.jpg" alt="PCB" width="400"/><img src="/Hardware/Photo_8.jpg" alt="PCB" width="400"/>
 
 
@@ -100,7 +100,7 @@ The board is designed for compact SFF (Small Form Factor) environments. Please n
 
 You have two ways to get the board up and running:
 
-### Option A: ESPHome / Home Assistant SOON!
+### Option A: ESPHome / Home Assistant
 Perfect for smart home enthusiasts. Simply flash our pre-configured `.yaml` file to the board, and your fans will automatically appear in Home Assistant.<br>
 👉 [Get the esphome.yaml here](/Firmware/ESPHome)<br>
 <img src="/Hardware/Screenshot_2.jpg" alt="PCB" width="400"/>
