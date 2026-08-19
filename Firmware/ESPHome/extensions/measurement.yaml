@@ -8,16 +8,16 @@ esphome:
     - priority: 250 
       then:
         - lambda: |-
-            ESP_LOGI("stromsensor", "Kalibriere ADC Nullpunkt...");
+            ESP_LOGI("currentsensor", "calibrate zero");
             uint32_t sum = 0;
             
             for (int i = 0; i < 50; i++) {
-              sum += analogReadMilliVolts(7); // Pin 7 direkt auslesen
+              sum += analogReadMilliVolts(7); // Pin 7 read
               delay(5); 
             }
             
             id(zero_offset_mv) = sum / 50.0;
-            ESP_LOGI("stromsensor", "Fertig! Grundrauschen liegt bei %.1f mV", id(zero_offset_mv));
+            ESP_LOGI("currentsensor", "Done %.1f mV", id(zero_offset_mv));
 
 sensor:
   - platform: template
