@@ -158,7 +158,7 @@ void WlanAdd(String InputSSID, String InputPasswort);
 void WebRoutes();
 void init_fan_pcnt();
 float AnalogReadOut();
-float kalibriereNullpunkt(int pin);
+float calibrateZero(int pin);
 
 void setup() {
   pinMode(enable_pin, OUTPUT); 
@@ -168,7 +168,7 @@ void setup() {
   analogReadResolution(12);
   analogSetAttenuation(ADC_11db);
   delay(1000);
-  zero_offset_mv = kalibriereNullpunkt(CS_PIN);
+  zero_offset_mv = calibrateZero(CS_PIN);
   delay(1000);
   
   WlanConnect();
@@ -405,7 +405,7 @@ server.on("/", HTTP_GET, []() {
     Serial.println(pendingPass);
 
     String htmlResponse = "<!DOCTYPE HTML><html><head><meta charset=\"UTF-8\"></head>";
-    htmlResponse += "<body><h1>Gespeichert!</h1><p>THE ESP RESARTS AND RECONNECTS NOW</p></body></html>";
+    htmlResponse += "<body><h1>Saved!!</h1><p>THE ESP RESARTS AND RECONNECTS NOW</p></body></html>";
     server.send(200, "text/html", htmlResponse);
 
     new_wlan_data_recieved = true;
@@ -472,7 +472,7 @@ float AnalogReadOut(){
   return power_W;
 }
 
-float kalibriereNullpunkt(int pin) {
+float calibrateZero(int pin) {
   Serial.print("Calibrate zero");
   uint32_t sum = 0;
   
@@ -552,10 +552,10 @@ const char page_index[] PROGMEM = R"rawliteral(
         </div>
     </div>
 
-    <a href="/config" class="btn">WLAN Konfiguration</a>
+    <a href="/config" class="btn">WLAN configuration</a>
 
     <script>
-        // WebSocket Verbindung auf Port 81 (Standard für ESP32 WebSockets)
+        // WebSocket Port 81 (Standard ESP32 WebSockets)
         var gateway = `ws://${window.location.hostname}:81/`;
         var websocket;
         
@@ -579,8 +579,7 @@ const char page_index[] PROGMEM = R"rawliteral(
         }
 
         function onMessage(event) {
-            // Empfängt JSON vom ESP32 und updatet die Textfelder
-            // Erwartetes Format: {"v1":"23.5", "v2":"40", "v3":"12", "v4":"8.5", "v5":"99", "up":"12m 30s"}
+            // Expected format: {"v1":"23.5", "v2":"40", "v3":"12", "v4":"8.5", "v5":"99", "up":"12m 30s"}
             try {
                 var data = JSON.parse(event.data);
                 if(data.v1 !== undefined) document.getElementById('val1').innerText = data.v1;
@@ -598,14 +597,13 @@ const char page_index[] PROGMEM = R"rawliteral(
             }
         }
 
-        // Slider-Event: Sendet den Wert bei jeder Bewegung direkt an den ESP32
         var slider = document.getElementById('pwmSlider');
         var sliderText = document.getElementById('sliderVal');
         
         slider.addEventListener('input', function() {
             sliderText.innerText = this.value + ' %';
             if (websocket.readyState === WebSocket.OPEN) {
-                // Sendet ein kleines JSON an den ESP32: {"slider": 75}
+                // Sends JSON to ESP32: {"slider": 75}
                 websocket.send(JSON.stringify({slider: this.value}));
             }
         });
@@ -635,7 +633,7 @@ const char page_config[] PROGMEM = R"rawliteral(
 <body>
     <h1>WLAN Setup</h1>
     
-    <!-- Das Formular sendet die Daten per POST an die Route /save -->
+    <!-- POST to route /save -->
     <form action="/save" method="POST">
         <div class="form-group">
             <label for="ssid">SSID (WLAN-Name):</label>
