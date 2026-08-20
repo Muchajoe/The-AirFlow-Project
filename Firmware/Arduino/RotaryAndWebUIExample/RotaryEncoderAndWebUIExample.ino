@@ -398,10 +398,10 @@ server.on("/", HTTP_GET, []() {
     pendingSSID = server.arg("ssid");
     pendingPass = server.arg("password");
 
-    Serial.println("Neue WLAN-Data recieved:");
+    Serial.println("New WLAN-Data recieved:");
     Serial.print("SSID: ");
     Serial.println(pendingSSID);
-    Serial.print("Passwort: ");
+    Serial.print("Password: ");
     Serial.println(pendingPass);
 
     String htmlResponse = "<!DOCTYPE HTML><html><head><meta charset=\"UTF-8\"></head>";
@@ -503,7 +503,7 @@ const char page_index[] PROGMEM = R"rawliteral(
         .slider-label { display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 10px; }
         input[type=range] { width: 100%; }
         
-        /* Grid für die 6 Messwerte */
+        /* Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-bottom: 25px; }
         .value-box { background: #f4f4f4; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .value-box .label { font-size: 14px; color: #666; margin-bottom: 5px; }
@@ -562,7 +562,7 @@ const char page_index[] PROGMEM = R"rawliteral(
         window.addEventListener('load', initWebSocket);
 
         function initWebSocket() {
-            console.log('Verbinde mit WebSocket...');
+            console.log('Connect  WebSocket...');
             websocket = new WebSocket(gateway);
             websocket.onopen    = onOpen;
             websocket.onclose   = onClose;
@@ -570,12 +570,12 @@ const char page_index[] PROGMEM = R"rawliteral(
         }
 
         function onOpen(event) {
-            console.log('WebSocket verbunden');
+            console.log('WebSocket connected');
         }
 
         function onClose(event) {
-            console.log('WebSocket getrennt. Versuche Reconnect in 2 Sekunden...');
-            setTimeout(initWebSocket, 2000); // Automatischer Reconnect, falls WLAN kurz weg ist
+            console.log('WebSocket disconnected. Retry in 2 sec');
+            setTimeout(initWebSocket, 2000); // Auto reconnect
         }
 
         function onMessage(event) {
@@ -593,7 +593,7 @@ const char page_index[] PROGMEM = R"rawliteral(
                     document.getElementById('sliderVal').innerText = data.slider + ' %';
                 }
             } catch (e) {
-                console.error("Fehler beim Parsen der WebSocket-Daten:", e);
+                console.error("Failed to parse the WebSocket-Data:", e);
             }
         }
 
