@@ -58,7 +58,7 @@ sensor:
       float current_A = ((v_cs / R_CS) * K_CS) * BOARD_CALIBRATION;
       float power_W = current_A * SYSTEM_VOLTAGE;
 
-      // Warnung ins Log ausgeben
+      // Warning to LOG
       if (current_A >= (I_LIMIT - 0.05)) {
         ESP_LOGW("currentsensor", "HARDWARE CURRENT LIMIT ACTIV (%.2f A)", current_A);
       }
