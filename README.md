@@ -54,7 +54,7 @@ To guarantee flawless motor control, this board utilizes a dedicated **CD74HCT12
 * **Perfect Square Waves:** Instead of floating, the IC actively drives the signal high (5V) and aggressively pulls it low (GND). This ensures perfectly sharp signal edges and totally eliminates RPM fluctuations or motor clicking.
 * **Modern Industry Standards:** This robust, active signaling approach is designed in accordance with modern high-end cooling standards, perfectly satisfying the strict electrical requirements detailed in [Noctua's PWM Specifications White Paper](https://cdn.noctua.at/media/Noctua_PWM_specifications_white_paper.pdf).<br><br>
 <img src="/Hardware/Photo_3.jpg" alt="Photo 3" width="400"/><img src="/Hardware/Rendering_amplifier.jpg" alt="Photo 3" width="400"/><br>
-[The AirFlowProject Remix of Noctua's Amplifier 3D File (PRINTABLES.com)](https://www.printables.com/model/1357774-the-airflow-project-140mm-air-amplifier-integrated)
+[The AirFlowProject Remix of Noctua's Amplifier 3D File (printables.com/)](https://www.printables.com/model/1357774-the-airflow-project-140mm-air-amplifier-integrated)
 
 ## 🔌 Flexible Power Input Options
 
