@@ -1,3 +1,5 @@
+# REV 2.0 <br><br>
+
 | No. | Quantity| Comment| Designator|Footprint | Value| Typ| Supplier Part| Supplier|
 | --------- |:-------------:|:-------------:|:------------:|:-------------:|:-------------:|:------------:|:-------------:|:-------------:|
 |1|3|10uF|C1,C2,C3|C0805|10uF||SMD|C15850|LCSC|
