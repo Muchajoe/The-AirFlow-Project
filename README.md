@@ -3,7 +3,6 @@
 [![Hardware License: CC BY-NC-ND 4.0](https://img.shields.io/badge/Hardware_License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 [![Home Assistant](https://img.shields.io/badge/Home_Assistant-Ready-41BDF5?logo=homeassistant&logoColor=white.svg)](https://www.home-assistant.io/)
 [![Buy on Tindie](https://img.shields.io/badge/SOON_on-Tindie-blueviolet.svg)](https://www.tindie.com/)
-![Status](https://img.shields.io/badge/Status-Torture_Testing-orange)
 [![V1.0 Release](https://img.shields.io/badge/🎉_Release-HERE!-brightgreen.svg)](https://github.com/Muchajoe/The-AirFlow-Project/releases)
 
 An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC modding, SFF (Small Form Factor) builds, and smart home integration. **Please read this attentive!**
