@@ -115,8 +115,9 @@ Use the code example to understand the logic and write your own code to get exac
 
 ## 🔌 Hardware & Pinout
 # Hardware
-You will find the whole component list here (Bill of materials (BOM))<br>
-👉 [BOM](/Hardware/README.md)<br><br>
+You will find the whole component list here (Bill of materials (BOM)) and the known issues here:<br>
+👉 [BOM and Known issues](/Hardware/README.md)<br>
+👉 [Changelog](CHANGELOG.md)<br><br>
 
 # Pinout<br>
 
