@@ -157,7 +157,7 @@ Is something not working? Take a look here:
 You are searching for a replacement part:
 👉 [BOM](/Hardware/README.md)<br>
 Some isssues are known and we will work on that for future revisions:
-👉 [Known issues](https://github.com/Muchajoe/The-AirFlow-Project/issues/2)<br>
+👉 [Known issues](/Hardware/README.md)<br>
 
 
 ---
