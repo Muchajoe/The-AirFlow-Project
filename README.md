@@ -134,7 +134,7 @@ You will find the whole component list here (Bill of materials (BOM)) and the kn
 | RPM3      | 8      |SOON|SOON|
 | RGB LED   | 21     |SOON|SOON|
 | H3 PIN6   | 6      |SOON|SOON|
-| H3 PIN7   | 7      |SOON|SOON|
+| H3 PIN7 or CS   | 7      |SOON|SOON|
 | H4 PIN5   | 5      |SOON|SOON|
 | H4 PIN4   | 4      |SOON|SOON|
 | H4 PIN3   | 3      |SOON|SOON|
