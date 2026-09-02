@@ -153,11 +153,11 @@ The board is equipped with a strict **2.5A (FAN CURRENT) hardware limit**. This 
 
 ### Troubleshooting
 Is something not working? Take a look here:
-👉 [Troubleshooting](Troubleshooting)<br>
+👉 [Troubleshooting](Troubleshooting)<br><br>
 You are searching for a replacement part:
-👉 [BOM](/Hardware/README.md)<br>
+👉 [BOM](/Hardware/README.md)<br><br>
 Some isssues are known and we will work on that for future revisions:
-👉 [Known issues](/issues/2)<br>
+👉 [Known issues](https://github.com/Muchajoe/The-AirFlow-Project/issues/2)<br><br>
 
 
 ---
