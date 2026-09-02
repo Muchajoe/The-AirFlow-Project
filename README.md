@@ -152,8 +152,13 @@ Please use a high quality 12v 4a Power supply.
 The board is equipped with a strict **2.5A (FAN CURRENT) hardware limit**. This is more than enough for four standard 120/140mm PC fans running at full speed. Do **not** connect water cooling pumps (like a D5), as their high startup current will immediately trigger the eFuse's 2.5A limit. **If you are using the DC005, keep in mind that this connector supports only up to 2.5 amps.**
 
 ### Troubleshooting
-Is something not working? Take a look here
-👉 [Troubleshooting](Troubleshooting)
+Is something not working? Take a look here:
+👉 [Troubleshooting](Troubleshooting)<br>
+You are searching for a replacement part:
+👉 [BOM](/Hardware/README.md)<br>
+Some isssues are known and we will work on that for future revisions:
+👉 [Known issues](/issues/2)<br>
+
 
 ---
 
