@@ -114,12 +114,12 @@ Use the code example to understand the logic and write your own code to get exac
 ---
 
 ## 🔌 Hardware & Pinout
-# Hardware
+### Hardware
 You will find the whole component list here (Bill of materials (BOM)) and the known issues here:<br>
 👉 [BOM and Known issues](/Hardware/README.md)<br>
 👉 [Changelog](CHANGELOG.md)<br><br>
 
-# Pinout<br>
+### Pinout<br>
 
 | Board PIN | ESP32S3 PIN| ESP32C3 PIN| ESP32C6 PIN|
 | --------- |:-------------:|:-------------:|:------------:|
@@ -152,7 +152,7 @@ To maximize the limited GPIOs of the ESP32-S3, the board features a solder jumpe
 Please use a high quality 12v 4a Power supply.
 The board is equipped with a strict **2.5A (FAN CURRENT) hardware limit**. This is more than enough for four standard 120/140mm PC fans running at full speed. Do **not** connect water cooling pumps (like a D5), as their high startup current will immediately trigger the eFuse's 2.5A limit. **If you are using the DC005, keep in mind that this connector supports only up to 2.5 amps.**
 
-### Troubleshooting
+## Troubleshooting
 Is something not working? Take a look here:
 👉 [Troubleshooting](Troubleshooting)<br>
 You are searching for a replacement part:
@@ -163,7 +163,7 @@ Some isssues are known and we will work on that for future revisions:
 
 ---
 
-### Famous and Important last words
+## Famous and Important last words
 * **REV 2.0:**<br>
 **!!! IMPORTANT: UNMOUNT THE ESP32 Before USING USB !!!**
 If you are using the USB from the mounted ESP32 there could be a Backfeeding. That means in this moment your USB will power up the whole pcb and that could possibly overload your USB Port or damages the ESP32 Hardware. It is strictly recommended to physically unmount the ESP32 from the PCB before using the USB for flashing. A OTA update function could be a good solution for this. **!!! In any case  disconnect the 12v Power supply. Before using the USB Port !!!** I am working on that for future revisions to fix this behaivior. For newer boards (Rev 2.1)
