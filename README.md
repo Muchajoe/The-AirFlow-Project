@@ -5,7 +5,7 @@
 [![Buy on Tindie](https://img.shields.io/badge/SOON_on-Tindie-blueviolet.svg)](https://www.tindie.com/)
 [![V1.0 Release](https://img.shields.io/badge/🎉_Release-HERE!-brightgreen.svg)](https://github.com/Muchajoe/The-AirFlow-Project/releases)
 
-An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC modding, SFF (Small Form Factor) builds, and smart home integration. **Please read this attentive!**
+An An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC modding, SFF (Small Form Factor) builds, and smart home integration. **Please read this carefully!**
 
 No proprietary desktop software required: just plug it in, connect to Wi-Fi, and take control immediately via Home Assistant or with your own Arduino code.
 
@@ -166,7 +166,7 @@ Some isssues are known and we will work on that for future revisions:
 ## Famous and Important last words
 * **REV 2.0:**<br>
 **!!! IMPORTANT: UNMOUNT THE ESP32 Before USING USB !!!**
-If you are using the USB from the mounted ESP32 there could be a Backfeeding. That means in this moment your USB will power up the whole pcb and that could possibly overload your USB Port or damages the ESP32 Hardware. It is strictly recommended to physically unmount the ESP32 from the PCB before using the USB for flashing. A OTA update function could be a good solution for this. **!!! In any case  disconnect the 12v Power supply. Before using the USB Port !!!** I am working on that for future revisions to fix this behaivior. For newer boards (Rev 2.1)
+If you are using the USB from the mounted ESP32 there could be a Backfeeding. That means in this moment your USB will power up the whole pcb and that could possibly overload your USB Port or damages the ESP32 Hardware. It is strictly recommended to physically unmount the ESP32 from the PCB before using the USB for flashing. A OTA update function could be a good solution for this. **!!! In any case  disconnect the 12v Power supply. Before using the USB Port !!!** I am working on that for future revisions to fix this behavior for newer boards (Rev 2.1)
 
 ---
 
