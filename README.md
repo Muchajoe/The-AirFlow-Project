@@ -5,7 +5,7 @@
 [![Buy on Tindie](https://img.shields.io/badge/SOON_on-Tindie-blueviolet.svg)](https://www.tindie.com/)
 [![V1.0 Release](https://img.shields.io/badge/🎉_Release-HERE!-brightgreen.svg)](https://github.com/Muchajoe/The-AirFlow-Project/releases)
 
-An An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC modding, SFF (Small Form Factor) builds, and smart home integration. **Please read this carefully!**
+An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC modding, SFF (Small Form Factor) builds, and smart home integration. **Please read this carefully!**
 
 No proprietary desktop software required: just plug it in, connect to Wi-Fi, and take control immediately via Home Assistant or with your own Arduino code.
 
