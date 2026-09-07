@@ -116,7 +116,7 @@ Use the code example to understand the logic and write your own code to get exac
 ## 🔌 Hardware & Pinout
 ### Hardware
 You will find the whole component list here (Bill of materials (BOM)) and the known issues here:<br>
-👉 [BOM and Known issues](/Hardware/README.md)<br>
+👉 [BOM, Schematics and Known issues](/Hardware/README.md)<br>
 👉 [Changelog](CHANGELOG.md)<br><br>
 
 ### Pinout<br>
@@ -159,6 +159,8 @@ You are searching for a replacement part:
 👉 [BOM](/Hardware/README.md)<br>
 Some isssues are known and we will work on that for future revisions:
 👉 [Known issues](/Hardware/README.md)<br>
+Here you will find the schematics:
+👉 [Schematics](/Hardware/README.md)<br>
 
 
 ---
