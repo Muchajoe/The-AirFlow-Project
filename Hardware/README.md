@@ -1,4 +1,5 @@
-# Bill of materials (BOM)
+# Hardware Overview
+This includes a overview where you can find the bom (bill of material) and known issues and schematics and the changelog<br><br>
 
 ### 👉 [Changelog](/CHANGELOG.md)<br><br>
 ### 👉 [REV 2.0 BOM](/Hardware/REV2.0/bom%20REV2.0.md) 👉 [REV 2.0 Known issues](https://github.com/Muchajoe/The-AirFlow-Project/issues/2) 👉 [REV 2.0 Schematics](/Hardware/REV2.0/schematic%20REV2.0.pdf)<br>
