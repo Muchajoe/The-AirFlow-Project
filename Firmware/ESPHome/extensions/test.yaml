@@ -64,7 +64,7 @@ sensor:
 
       if (raw_mv > 2.5) {
         ESP_LOGD("current sensor", "Open-Load. Set to 0W.");
-        return 0.0; 
+        //return 0.0; 
       }
 
       return power_W;
