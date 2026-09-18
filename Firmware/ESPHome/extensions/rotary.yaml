@@ -1,12 +1,17 @@
-sensor:
-  # ==========================================
-  # ROTARY ENCODER (Rotation)
-  # ==========================================
+# DREHREGLER (Rotation)
   - platform: rotary_encoder
     name: "Fan Speed Encoder"
     id: rotary_encoder_speed
-    pin_a: 5
-    pin_b: 4
+    pin_a:
+      number: 5
+      mode:
+        input: true
+        pullup: true # HIER IST DER FIX
+    pin_b:
+      number: 4
+      mode:
+        input: true
+        pullup: true # HIER IST DER FIX
     min_value: 0
     max_value: 100
     resolution: 1
@@ -14,7 +19,6 @@ sensor:
     on_value:
       then:
         - if:
-            # IF 0 ALL OFF
             condition:
               lambda: 'return x == 0;'
             then:
@@ -22,8 +26,6 @@ sensor:
               - fan.turn_off: fan1
               - fan.turn_off: fan2
               - fan.turn_off: fan3
-            
-            # ELSE ON
             else:
               - fan.turn_on:
                   id: fan0
