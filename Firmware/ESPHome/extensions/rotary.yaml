@@ -1,4 +1,7 @@
-# DREHREGLER (Rotation)
+sensor:
+  # ==========================================
+  # DREHREGLER (Rotation)
+  # ==========================================
   - platform: rotary_encoder
     name: "Fan Speed Encoder"
     id: rotary_encoder_speed
@@ -6,12 +9,12 @@
       number: 5
       mode:
         input: true
-        pullup: true # HIER IST DER FIX
+        pullup: true # Verhindert den Antennen-Effekt
     pin_b:
       number: 4
       mode:
         input: true
-        pullup: true # HIER IST DER FIX
+        pullup: true # Verhindert den Antennen-Effekt
     min_value: 0
     max_value: 100
     resolution: 1
@@ -39,3 +42,29 @@
               - fan.turn_on:
                   id: fan3
                   speed: !lambda 'return x;'
+
+binary_sensor:
+  # ==========================================
+  # DRUCKTASTER (Push-Button)
+  # ==========================================
+  - platform: gpio
+    name: "Rotary Button"
+    id: rotary_button
+    pin:
+      number: 3
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - delayed_on: 10ms
+      - delayed_off: 10ms
+    on_press:
+      then:
+        - fan.turn_off: fan0
+        - fan.turn_off: fan1
+        - fan.turn_off: fan2
+        - fan.turn_off: fan3
+        - sensor.rotary_encoder.set_value:
+            id: rotary_encoder_speed
+            value: 0
