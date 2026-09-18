@@ -1,4 +1,4 @@
-TESTsensor:
+sensor:
   # 1. Native ADC Sensor (reads the voltage cleanly from Pin 7)
   - platform: adc
     pin: 7
