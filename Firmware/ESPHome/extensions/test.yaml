@@ -4,14 +4,16 @@ globals:
     initial_value: '0.0'
 
 esphome:
-  name: smart-fan-controller
-  
+  # ... (dein restlicher esphome: block)
   on_boot:
     priority: 250 
     then:
       - lambda: |-
-          ESP_LOGI("current sensor", "calibrate Zero");
+          ESP_LOGI("current_sensor", "Calibrate Zero Offset...");
           uint32_t sum = 0;
+          
+          // Kurze Pause, damit die interne ESP-Spannung nach dem Boot sauber anliegt
+          delay(10); 
           
           for (int i = 0; i < 50; i++) {
             sum += analogReadMilliVolts(7); 
@@ -19,12 +21,11 @@ esphome:
           }
           
           id(zero_offset_mv) = sum / 50.0;
-          ESP_LOGI("current sensor", "Done %.1f mV", id(zero_offset_mv));
+          ESP_LOGI("current_sensor", "Calibration Done. Offset: %.1f mV", id(zero_offset_mv));
 
 sensor:
-
   - platform: template
-    name: Fan Power Consumption"
+    name: "Fan Power Consumption"
     id: system_power
     unit_of_measurement: "W"
     device_class: "power"
@@ -38,33 +39,41 @@ sensor:
       const float BOARD_CALIBRATION = 1.087;
       
       uint32_t sum_mv = 0;
-      const int NUM_SAMPLES = 10;
+      const int NUM_SAMPLES = 20; // Von 10 auf 20 erhöht für weichere Messwerte
       
-      // 10 Samples
       for (int i = 0; i < NUM_SAMPLES; i++) {
         sum_mv += analogReadMilliVolts(7);
         delay(2);
       }
       
       float raw_mv = (sum_mv / (float)NUM_SAMPLES);
-      
       float corrected_mv = raw_mv - id(zero_offset_mv);
       
+      // Verhindern, dass Messrauschen negative Werte erzeugt
       if (corrected_mv < 0.0) {
         corrected_mv = 0.0;
       }
       
-      float v_cs = corrected_mv / 1000.0;
+      float v_cs = corrected_mv / 1000.0; // Umrechnung in Volt
+      
+      // HIER WAR DER FEHLER: v_cs statt raw_mv nutzen! (2.5 Volt = 2500 mV)
+      if (v_cs > 2.5) {
+        ESP_LOGD("current_sensor", "Open-Load or Overvoltage. Set to 0W.");
+        return 0.0; 
+      }
+      
       float current_A = ((v_cs / R_CS) * K_CS) * BOARD_CALIBRATION;
+      
+      // Deadband-Filter: Werte unter 0.03 A (30mA) werden als 0 gewertet.
+      // Filtert das ADC-Rauschen, wenn alle Lüfter aus sind.
+      if (current_A < 0.03) {
+        current_A = 0.0;
+      }
+      
       float power_W = current_A * SYSTEM_VOLTAGE;
 
       if (current_A >= (I_LIMIT - 0.05)) {
-        ESP_LOGW("current sensor", "WARNING: HARDWARE-CURRENT LIMIT! (%.2f A)", current_A);
-      }
-
-      if (raw_mv > 2.5) {
-        ESP_LOGD("current sensor", "Open-Load. Set to 0W.");
-        //return 0.0; 
+        ESP_LOGW("current_sensor", "WARNING: HARDWARE-CURRENT LIMIT! (%.2f A)", current_A);
       }
 
       return power_W;
