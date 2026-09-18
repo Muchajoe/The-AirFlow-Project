@@ -1,20 +1,30 @@
-sensor:
-  # 1. Native ADC Sensor (reads the voltage cleanly from Pin 7)
-  - platform: adc
-    pin: 7
-    id: current_sense_v
-    name: "CS Raw Voltage"
-    update_interval: 1s
-    attenuation: 11db
-    filters:
-      # Calculates the average of 10 measurements for smoother readings
-      - sliding_window_moving_average:
-          window_size: 10
-          send_every: 1
+globals:
+  - id: zero_offset_mv
+    type: float
+    initial_value: '0.0'
 
-  # 2. Your Power Sensor
+esphome:
+  name: smart-fan-controller
+  
+  on_boot:
+    priority: 250 
+    then:
+      - lambda: |-
+          ESP_LOGI("current sensor", "calibrate Zero");
+          uint32_t sum = 0;
+          
+          for (int i = 0; i < 50; i++) {
+            sum += analogReadMilliVolts(7); 
+            delay(5); 
+          }
+          
+          id(zero_offset_mv) = sum / 50.0;
+          ESP_LOGI("current sensor", "Done %.1f mV", id(zero_offset_mv));
+
+sensor:
+
   - platform: template
-    name: "Fan Power Consumption"
+    name: Fan Power Consumption"
     id: system_power
     unit_of_measurement: "W"
     device_class: "power"
@@ -27,27 +37,34 @@ sensor:
       const float I_LIMIT = 2.466;   
       const float BOARD_CALIBRATION = 1.087;
       
-      // Fetch voltage from the native ADC (is already in Volts!)
-      // If the sensor doesn't have a value yet, abort (prevents boot errors)
-      if (std::isnan(id(current_sense_v).state)) {
-        return {};
-      }
-      float raw_v = id(current_sense_v).state;
+      uint32_t sum_mv = 0;
+      const int NUM_SAMPLES = 10;
       
-      // ESP32 ADC Deadzone Correction:
-      // Voltages below 0.08V (80mV) are pure noise at 0A load. 
-      // We hardcode the value to 0 so the consumption is 0W when fans are off.
-      if (raw_v < 0.08) {
-        return 0.0;
+      // 10 Samples
+      for (int i = 0; i < NUM_SAMPLES; i++) {
+        sum_mv += analogReadMilliVolts(7);
+        delay(2);
       }
       
-      // Current and Power Calculation
-      float current_A = ((raw_v / R_CS) * K_CS) * BOARD_CALIBRATION;
+      float raw_mv = (sum_mv / (float)NUM_SAMPLES);
+      
+      float corrected_mv = raw_mv - id(zero_offset_mv);
+      
+      if (corrected_mv < 0.0) {
+        corrected_mv = 0.0;
+      }
+      
+      float v_cs = corrected_mv / 1000.0;
+      float current_A = ((v_cs / R_CS) * K_CS) * BOARD_CALIBRATION;
       float power_W = current_A * SYSTEM_VOLTAGE;
 
-      // Output warning to the log
       if (current_A >= (I_LIMIT - 0.05)) {
-        ESP_LOGW("power_sensor", "WARNING: HARDWARE CURRENT LIMIT ACTIVE! (%.2f A)", current_A);
+        ESP_LOGW("current sensor", "WARNING: HARDWARE-CURRENT LIMIT! (%.2f A)", current_A);
+      }
+
+      if (raw_v > 2.5) {
+        ESP_LOGD("current sensor", "Open-Load. Set to 0W.");
+        return 0.0; 
       }
 
       return power_W;
