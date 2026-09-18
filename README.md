@@ -93,6 +93,7 @@ The board is designed for compact SFF (Small Form Factor) environments. Please n
     * The tallest component is ~18 mm.
     * *Note:* Please ensure extra vertical clearance to account for the height of the Molex 4-pin fan connectors (Fan side).
 * **Component Height (Back/Bottom):** Maximum component profile is ~3 mm. Ensure adequate standoff distance (e.g., using 5mm standoffs) if mounting on a flat metal surface to avoid short circuits.
+You can find a 3D file of the PCB [here](/Hardware/README.md). That may be help you design a costom housing. 
 <img src="/Hardware/PCB.png" alt="PCB" width="800"/>
 
 ---
