@@ -1,29 +1,22 @@
-globals:
-  - id: zero_offset_mv
-    type: float
-    initial_value: '0.0'
-
-esphome:
-  # ... (dein restlicher esphome: block)
-  on_boot:
-    priority: 250 
-    then:
-      - lambda: |-
-          ESP_LOGI("current_sensor", "Calibrate Zero Offset...");
-          uint32_t sum = 0;
-          
-          // Kurze Pause, damit die interne ESP-Spannung nach dem Boot sauber anliegt
-          delay(10); 
-          
-          for (int i = 0; i < 50; i++) {
-            sum += analogReadMilliVolts(7); 
-            delay(5); 
-          }
-          
-          id(zero_offset_mv) = sum / 50.0;
-          ESP_LOGI("current_sensor", "Calibration Done. Offset: %.1f mV", id(zero_offset_mv));
-
 sensor:
+  # ==========================================
+  # 1. NATIVE ADC MESSUNG (Spannung lesen)
+  # ==========================================
+  - platform: adc
+    pin: 7
+    id: efuse_voltage
+    name: "eFuse Raw Voltage"
+    attenuation: 11db # WICHTIG: Erlaubt das Lesen von 0V bis ~3.1V
+    update_interval: 200ms # Holt oft Werte für weichere Daten
+    filters:
+      # Wir bilden einen gleitenden Durchschnitt über 5 Werte (1 Sekunde)
+      - sliding_window_moving_average:
+          window_size: 5
+          send_every: 5
+
+  # ==========================================
+  # 2. BERECHNUNG DER WATTZAHL
+  # ==========================================
   - platform: template
     name: "Fan Power Consumption"
     id: system_power
@@ -32,44 +25,45 @@ sensor:
     state_class: "measurement"
     update_interval: 1s
     lambda: |-
+      // Holt die bereits vom ADC geglättete Spannung (ist bereits in VOLT!)
+      float v_cs = id(efuse_voltage).state;
+      
+      // Abbruch, falls der ADC noch keinen gültigen Wert hat
+      if (isnan(v_cs)) {
+        return 0.0;
+      }
+
       const float R_CS = 330.0;        
       const float K_CS = 500.0;          
       const float SYSTEM_VOLTAGE = 12.0;
       const float I_LIMIT = 2.466;   
       const float BOARD_CALIBRATION = 1.087;
       
-      uint32_t sum_mv = 0;
-      const int NUM_SAMPLES = 20; // Von 10 auf 20 erhöht für weichere Messwerte
+      // Falls die eFuse im Leerlauf ein leichtes Rauschen ausgibt (z.B. 10mV), 
+      // kannst du es hier abziehen. Standard: 0.0 (kein Offset nötig)
+      const float VOLTAGE_OFFSET = 0.000; 
       
-      for (int i = 0; i < NUM_SAMPLES; i++) {
-        sum_mv += analogReadMilliVolts(7);
-        delay(2);
+      v_cs = v_cs - VOLTAGE_OFFSET;
+      
+      if (v_cs < 0.0) {
+        v_cs = 0.0;
       }
       
-      float raw_mv = (sum_mv / (float)NUM_SAMPLES);
-      float corrected_mv = raw_mv - id(zero_offset_mv);
-      
-      // Verhindern, dass Messrauschen negative Werte erzeugt
-      if (corrected_mv < 0.0) {
-        corrected_mv = 0.0;
-      }
-      
-      float v_cs = corrected_mv / 1000.0; // Umrechnung in Volt
-      
-      // HIER WAR DER FEHLER: v_cs statt raw_mv nutzen! (2.5 Volt = 2500 mV)
+      // Open-Load Check
       if (v_cs > 2.5) {
-        ESP_LOGD("current_sensor", "Open-Load or Overvoltage. Set to 0W.");
+        ESP_LOGD("current_sensor", "Open-Load or Overvoltage. V_CS: %.2fV", v_cs);
         return 0.0; 
       }
       
+      // Strom berechnen
       float current_A = ((v_cs / R_CS) * K_CS) * BOARD_CALIBRATION;
       
-      // Deadband-Filter: Werte unter 0.03 A (30mA) werden als 0 gewertet.
-      // Filtert das ADC-Rauschen, wenn alle Lüfter aus sind.
+      // Deadband-Filter: ADC Rauschen unter 30mA wird als 0W gewertet
       if (current_A < 0.03) {
         current_A = 0.0;
       }
       
+      // Leistung in Watt
       float power_W = current_A * SYSTEM_VOLTAGE;
 
       if (current_A >= (I_LIMIT - 0.05)) {
