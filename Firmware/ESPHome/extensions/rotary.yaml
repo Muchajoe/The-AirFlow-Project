@@ -1,6 +1,6 @@
 sensor:
   # ==========================================
-  # DREHREGLER (Rotation)
+  # Rotary
   # ==========================================
   - platform: rotary_encoder
     name: "Fan Speed Encoder"
@@ -9,12 +9,12 @@ sensor:
       number: 5
       mode:
         input: true
-        pullup: true # Verhindert den Antennen-Effekt
+        pullup: true 
     pin_b:
       number: 4
       mode:
         input: true
-        pullup: true # Verhindert den Antennen-Effekt
+        pullup: true 
     min_value: 0
     max_value: 100
     resolution: 1
@@ -45,7 +45,7 @@ sensor:
 
 binary_sensor:
   # ==========================================
-  # DRUCKTASTER (Push-Button)
+  # Push-Button
   # ==========================================
   - platform: gpio
     name: "Rotary Button"
