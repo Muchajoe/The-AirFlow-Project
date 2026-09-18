@@ -52,7 +52,7 @@ packages:
     #file: Firmware/ESPHome/extensions/measurement.yaml
     #refresh: 0s
 
-  #BME280 Envirement sensor SCL -> Pin 7 || SDA -> Pin 6
+  #BME280 Envirement sensor SCL -> Pin 7 || SDA -> Pin 6 || This reserves H3 Pin 7
   #bme280:
     #url: https://github.com/Muchajoe/The-AirFlow-Project
     #file: Firmware/ESPHome/extensions/bme280.yaml
