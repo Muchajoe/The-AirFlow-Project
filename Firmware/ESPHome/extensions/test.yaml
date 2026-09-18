@@ -1,18 +1,18 @@
 sensor:
   # ==========================================
-  # 1. NATIVE ADC MESSUNG (Spannung lesen)
+  # 1. EXTREM GEGLÄTTETE ADC MESSUNG
   # ==========================================
   - platform: adc
     pin: 7
     id: efuse_voltage
     name: "eFuse Raw Voltage"
-    attenuation: 11db # WICHTIG: Erlaubt das Lesen von 0V bis ~3.1V
-    update_interval: 200ms # Holt oft Werte für weichere Daten
+    attenuation: 11db
+    update_interval: 100ms  # Sehr schnell messen (10x pro Sekunde)
     filters:
-      # Wir bilden einen gleitenden Durchschnitt über 5 Werte (1 Sekunde)
       - sliding_window_moving_average:
-          window_size: 5
-          send_every: 5
+          window_size: 20   # Durchschnitt der letzten 2 Sekunden bilden
+          send_every: 10    # Jede Sekunde einen stark beruhigten Wert ausgeben
+    accuracy_decimals: 3
 
   # ==========================================
   # 2. BERECHNUNG DER WATTZAHL
@@ -25,10 +25,8 @@ sensor:
     state_class: "measurement"
     update_interval: 1s
     lambda: |-
-      // Holt die bereits vom ADC geglättete Spannung (ist bereits in VOLT!)
       float v_cs = id(efuse_voltage).state;
       
-      // Abbruch, falls der ADC noch keinen gültigen Wert hat
       if (isnan(v_cs)) {
         return 0.0;
       }
@@ -39,35 +37,31 @@ sensor:
       const float I_LIMIT = 2.466;   
       const float BOARD_CALIBRATION = 1.087;
       
-      // Falls die eFuse im Leerlauf ein leichtes Rauschen ausgibt (z.B. 10mV), 
-      // kannst du es hier abziehen. Standard: 0.0 (kein Offset nötig)
-      const float VOLTAGE_OFFSET = 0.000; 
+      // ==========================================
+      // DEIN NEUER NULLPUNKT (OFFSET)
+      // ==========================================
+      // Beobachte den Wert von "eFuse Raw Voltage" wenn alle Lüfter AUS sind.
+      // Er sollte jetzt durch den Filter viel ruhiger sein (z.B. konstant 0.15V).
+      // Trage exakt diesen Ruhewert hier ein:
+      const float VOLTAGE_OFFSET = 0.150; 
       
+      // Offset abziehen
       v_cs = v_cs - VOLTAGE_OFFSET;
       
+      // Alles was durch leichtes Restrauschen unter 0 fällt, abschneiden
       if (v_cs < 0.0) {
         v_cs = 0.0;
-      }
-      
-      // Open-Load Check
-      if (v_cs > 2.5) {
-        ESP_LOGD("current_sensor", "Open-Load or Overvoltage. V_CS: %.2fV", v_cs);
-        return 0.0; 
       }
       
       // Strom berechnen
       float current_A = ((v_cs / R_CS) * K_CS) * BOARD_CALIBRATION;
       
-      // Deadband-Filter: ADC Rauschen unter 30mA wird als 0W gewertet
-      if (current_A < 0.03) {
+      // Härterer Deadband-Filter: Wenn der errechnete Strom unter 0.05 A (600mW) liegt,
+      // werten wir es als Rauschen und setzen es auf 0.0 Watt.
+      if (current_A < 0.05) {
         current_A = 0.0;
       }
       
-      // Leistung in Watt
       float power_W = current_A * SYSTEM_VOLTAGE;
-
-      if (current_A >= (I_LIMIT - 0.05)) {
-        ESP_LOGW("current_sensor", "WARNING: HARDWARE-CURRENT LIMIT! (%.2f A)", current_A);
-      }
 
       return power_W;
