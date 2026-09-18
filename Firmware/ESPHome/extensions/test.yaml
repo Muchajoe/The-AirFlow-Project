@@ -62,7 +62,7 @@ sensor:
         ESP_LOGW("current sensor", "WARNING: HARDWARE-CURRENT LIMIT! (%.2f A)", current_A);
       }
 
-      if (raw_v > 2.5) {
+      if (raw_mv > 2.5) {
         ESP_LOGD("current sensor", "Open-Load. Set to 0W.");
         return 0.0; 
       }
