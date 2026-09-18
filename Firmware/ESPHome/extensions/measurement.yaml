@@ -4,29 +4,32 @@ globals:
     initial_value: '0.0'
 
 esphome:
+  name: smart-fan-controller
+  
   on_boot:
-    - priority: 250 
-      then:
-        - lambda: |-
-            ESP_LOGI("currentsensor", "calibrate zero");
-            uint32_t sum = 0;
-            
-            for (int i = 0; i < 50; i++) {
-              sum += analogReadMilliVolts(7); // Pin 7 read
-              delay(5); 
-            }
-            
-            id(zero_offset_mv) = sum / 50.0;
-            ESP_LOGI("currentsensor", "Done %.1f mV", id(zero_offset_mv));
+    priority: 250 
+    then:
+      - lambda: |-
+          ESP_LOGI("stromsensor", "Kalibriere ADC Nullpunkt...");
+          uint32_t sum = 0;
+          
+          for (int i = 0; i < 50; i++) {
+            sum += analogReadMilliVolts(7); // Pin 7 direkt auslesen
+            delay(5); 
+          }
+          
+          id(zero_offset_mv) = sum / 50.0;
+          ESP_LOGI("stromsensor", "Fertig! Grundrauschen liegt bei %.1f mV", id(zero_offset_mv));
 
 sensor:
+
   - platform: template
-    name: "Fan Power Consumption"
+    name: Fan Power Consumption"
     id: system_power
     unit_of_measurement: "W"
     device_class: "power"
     state_class: "measurement"
-    update_interval: 1s 
+    update_interval: 1s
     lambda: |-
       const float R_CS = 330.0;        
       const float K_CS = 500.0;          
@@ -43,24 +46,20 @@ sensor:
         delay(2);
       }
       
-      // Calculate average
       float raw_mv = (sum_mv / (float)NUM_SAMPLES);
       
-      // Set Zero
       float corrected_mv = raw_mv - id(zero_offset_mv);
       
       if (corrected_mv < 0.0) {
         corrected_mv = 0.0;
       }
       
-      // Voltage/Current calculation
       float v_cs = corrected_mv / 1000.0;
       float current_A = ((v_cs / R_CS) * K_CS) * BOARD_CALIBRATION;
       float power_W = current_A * SYSTEM_VOLTAGE;
 
-      // Warning to LOG
       if (current_A >= (I_LIMIT - 0.05)) {
-        ESP_LOGW("currentsensor", "HARDWARE CURRENT LIMIT ACTIV (%.2f A)", current_A);
+        ESP_LOGW("stromsensor", "WARNING: HARDWARE-CURRENT LIMIT! (%.2f A)", current_A);
       }
 
       return power_W;
