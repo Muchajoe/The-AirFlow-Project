@@ -145,7 +145,8 @@ It may be possible to use a ESP32C6 XIAO. You must mount it upside down (5v, GND
 ### The Solder Jumper (Optional Pin vs. Current Sense)
 To maximize the limited GPIOs of the ESP32-S3, the board features a solder jumper (J1):
 * **Position "Default":** H3 Pin7 is one of five Pins for optional hardware (Rotary encode, Button, Sensors).
-* **Position "CS" (bridged):** Sacrifices the H3 Pin7, but connects the ESP32 GPIO7 directly to the analog current-sense output of the eFuse for live telemetry and software-based short-circuit detection. IMPORTANT do not connect anything to H3 Pin7 anymore.
+* **Position "CS" (bridged):** Sacrifices the H3 Pin7, but connects the ESP32 GPIO7 directly to the analog current-sense output of the eFuse for live telemetry and software-based short-circuit detection. IMPORTANT do not connect anything to H3 Pin7 anymore.<br>
+_This analog measurement is designed for rough telemetry, not high-precision metering. At very low currents (e.g., fans running slowly or turned off), the TI eFuse enters an "Open-Load" fault state and outputs a high diagnostic voltage (~3V) instead of a real reading. To prevent massive false power spikes in your dashboard, your firmware must be configured to treat any raw voltage above ~2.5V as 0W._<br>
 <img src="/Hardware/Photo_5.png" alt="Photo 5" width="800"/>
 
 ### ⚠️ Power Supply Safety Note
