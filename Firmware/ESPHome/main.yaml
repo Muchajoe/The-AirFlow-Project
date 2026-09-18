@@ -40,7 +40,7 @@ packages:
     file: Firmware/ESPHome/extensions/base.yaml
     refresh: 0s
 
-  #Physical Rotary Encoder (Pins: CLK -> 5 | DT -> 4 | SW (Button) -> 3)
+  #Physical Rotary Encoder (Pins: CLK -> 5 || DT -> 4 || SW (Button) -> 3)
   #rotary:
     #url: https://github.com/Muchajoe/The-AirFlow-Project
     #file: Firmware/ESPHome/extensions/rotary.yaml
@@ -50,4 +50,10 @@ packages:
   #measurement:
     #url: https://github.com/Muchajoe/The-AirFlow-Project
     #file: Firmware/ESPHome/extensions/measurement.yaml
+    #refresh: 0s
+
+  #BME280 Envirement sensor SCL -> Pin 7 || SDA -> Pin 6
+  #bme280:
+    #url: https://github.com/Muchajoe/The-AirFlow-Project
+    #file: Firmware/ESPHome/extensions/bme280.yaml
     #refresh: 0s
