@@ -1,21 +1,21 @@
 sensor:
   # ==========================================
-  # 1. EXTREM GEGLÄTTETE ADC MESSUNG
+  # 
   # ==========================================
   - platform: adc
     pin: 7
     id: efuse_voltage
     name: "eFuse Raw Voltage"
     attenuation: 11db
-    update_interval: 100ms  # Sehr schnell messen (10x pro Sekunde)
+    update_interval: 100ms  
     filters:
       - sliding_window_moving_average:
-          window_size: 20   # Durchschnitt der letzten 2 Sekunden bilden
-          send_every: 10    # Jede Sekunde einen stark beruhigten Wert ausgeben
+          window_size: 20   
+          send_every: 10    
     accuracy_decimals: 3
 
   # ==========================================
-  # 2. BERECHNUNG DER WATTZAHL
+  # 
   # ==========================================
   - platform: template
     name: "Fan Power Consumption"
@@ -38,26 +38,19 @@ sensor:
       const float BOARD_CALIBRATION = 1.087;
       
       // ==========================================
-      // DEIN NEUER NULLPUNKT (OFFSET)
+      // 
       // ==========================================
-      // Beobachte den Wert von "eFuse Raw Voltage" wenn alle Lüfter AUS sind.
-      // Er sollte jetzt durch den Filter viel ruhiger sein (z.B. konstant 0.15V).
-      // Trage exakt diesen Ruhewert hier ein:
       const float VOLTAGE_OFFSET = 0.150; 
       
-      // Offset abziehen
+
       v_cs = v_cs - VOLTAGE_OFFSET;
       
-      // Alles was durch leichtes Restrauschen unter 0 fällt, abschneiden
       if (v_cs < 0.0) {
         v_cs = 0.0;
       }
       
-      // Strom berechnen
       float current_A = ((v_cs / R_CS) * K_CS) * BOARD_CALIBRATION;
       
-      // Härterer Deadband-Filter: Wenn der errechnete Strom unter 0.05 A (600mW) liegt,
-      // werten wir es als Rauschen und setzen es auf 0.0 Watt.
       if (current_A < 0.05) {
         current_A = 0.0;
       }
