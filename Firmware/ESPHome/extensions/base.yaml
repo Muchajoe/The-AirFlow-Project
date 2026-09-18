@@ -1,5 +1,5 @@
 # ==========================================
-# POWER SUPPLY ENABLE LOGIC
+# POWER SUPPLY ENABLE LOGIK
 # ==========================================
 switch:
   - platform: gpio
@@ -8,10 +8,10 @@ switch:
     name: "Power Supply Enable"
     restore_mode: ALWAYS_OFF
 # ==========================================
-# POWER SUPPLY ENABLE LOGIC
+# POWER SUPPLY ENABLE LOGIK
 # ==========================================
 interval:
-  - interval: 250ms
+  - interval: 500ms
     then:
       - if:
           condition:
@@ -26,7 +26,7 @@ interval:
             - switch.turn_off: psu_enable
 
 # ==========================================
-# FAN PWM OUTPUTS
+# LÜFTER PWM OUTPUTS
 # ==========================================
 output:
   - platform: ledc
@@ -47,28 +47,32 @@ output:
     frequency: 25000 Hz
 
 # ==========================================
-# FAN ENTITIES
+# LÜFTER ENTITÄTEN
 # ==========================================
 fan:
   - platform: speed
     output: fan0_pwm
     name: "Fan 0"
     id: fan0
+    restore_mode: ALWAYS_OFF
   - platform: speed
     output: fan1_pwm
     name: "Fan 1"
     id: fan1
+    restore_mode: ALWAYS_OFF
   - platform: speed
     output: fan2_pwm
     name: "Fan 2"
     id: fan2
+    restore_mode: ALWAYS_OFF
   - platform: speed
     output: fan3_pwm
     name: "Fan 3"
     id: fan3
+    restore_mode: ALWAYS_OFF
 
 # ==========================================
-# RPM SENSORS
+# RPM SENSOREN
 # ==========================================
 sensor:
   - platform: pulse_counter
@@ -78,7 +82,7 @@ sensor:
     unit_of_measurement: "RPM"
     update_interval: 5s
     filters:
-      - multiply: 0.5
+      - multiply: 0.5 # 2 Pulse pro Umdrehung
   - platform: pulse_counter
     pin: 10
     name: "Fan 1 RPM"
@@ -132,7 +136,7 @@ binary_sensor:
         input: true
         pullup: true
     id: boot_button
-    name: "Reset"
+    name: "Boot Button"
     filters:
       - delayed_on: 5s
     on_press:
