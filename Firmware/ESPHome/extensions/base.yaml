@@ -80,7 +80,7 @@ sensor:
     name: "Fan 0 RPM"
     id: fan0_rpm
     unit_of_measurement: "RPM"
-    update_interval: 5s
+    update_interval: 2s
     filters:
       - multiply: 0.5 # 2 Pulse pro Umdrehung
   - platform: pulse_counter
@@ -88,7 +88,7 @@ sensor:
     name: "Fan 1 RPM"
     id: fan1_rpm
     unit_of_measurement: "RPM"
-    update_interval: 5s
+    update_interval: 2s
     filters:
       - multiply: 0.5
   - platform: pulse_counter
@@ -96,7 +96,7 @@ sensor:
     name: "Fan 2 RPM"
     id: fan2_rpm
     unit_of_measurement: "RPM"
-    update_interval: 5s
+    update_interval: 2s
     filters:
       - multiply: 0.5
   - platform: pulse_counter
@@ -104,7 +104,7 @@ sensor:
     name: "Fan 3 RPM"
     id: fan3_rpm
     unit_of_measurement: "RPM"
-    update_interval: 5s
+    update_interval: 2s
     filters:
       - multiply: 0.5
 
