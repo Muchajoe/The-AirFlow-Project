@@ -33,6 +33,9 @@ logger:
 # HARDWARE CONFIGURATION
 # Uncomment the modules you want to enable by removing the #:
 # ==========================================
+substitutions:
+  bme280_address: "0x76" #or 0x77
+
 packages:
   #Base system (Always required!)
   base_system:
