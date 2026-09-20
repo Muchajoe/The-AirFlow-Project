@@ -1,5 +1,6 @@
 substitutions:
   name: "TheAirFlowProject"
+  bme280_address: "0x76" #or 0x77
 
 esphome:
   name: the_airflow_project
@@ -33,9 +34,6 @@ logger:
 # HARDWARE CONFIGURATION
 # Uncomment the modules you want to enable by removing the #:
 # ==========================================
-substitutions:
-  bme280_address: "0x76" #or 0x77
-
 packages:
   #Base system (Always required!)
   base_system:
@@ -55,7 +53,7 @@ packages:
     #file: Firmware/ESPHome/extensions/measurement.yaml
     #refresh: 0s
 
-  #BME280 Envirement sensor SCL -> Pin 7 || SDA -> Pin 6 || This reserves H3 Pin 7
+  #BME280 Envirement sensor SCL -> Pin 7 || SDA -> Pin 6 || This reserves H3 Pin 7 || set adress in line 3
   #bme280:
     #url: https://github.com/Muchajoe/The-AirFlow-Project
     #file: Firmware/ESPHome/extensions/bme280.yaml
