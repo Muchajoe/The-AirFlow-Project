@@ -3,7 +3,7 @@ substitutions:
   bme280_address: "0x76" #or 0x77
 
 esphome:
-  name: the_airflow_project
+  name: the-airflow-project
   friendly_name: The AirFlow Project
 
 esp32:
