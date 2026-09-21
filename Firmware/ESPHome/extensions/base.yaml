@@ -139,6 +139,15 @@ binary_sensor:
     name: "Boot Button"
     filters:
       - delayed_on: 5s
-    on_press: factory_reset_btn
+    on_press:
+      - button.press: factory_reset_btn
+# ==========================================
+# UPTIME
+# ==========================================
+text_sensor:
+  - platform: uptime
+    name: "Uptime"
+    icon: mdi:clock-outline
+    id: uptime_text
     
 
