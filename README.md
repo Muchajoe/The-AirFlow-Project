@@ -104,6 +104,7 @@ You have two ways to get the board up and running:
 
 ### Option A: ESPHome / Home Assistant
 Perfect for smart home enthusiasts. Simply flash our pre-configured `.yaml` file to the board, and your fans will automatically appear in Home Assistant.<br>
+_INFO: This configuration switches the Fan power automatically. If one or more fans are set to more than 0% PWM it switches the Fan power rail on_
 👉 [Get the esphome.yaml here](/Firmware/ESPHome)<br>
 <img src="/Hardware/Screenshot_2.jpg" alt="PCB" width="400"/>
 
