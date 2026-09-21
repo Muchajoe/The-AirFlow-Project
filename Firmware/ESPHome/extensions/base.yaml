@@ -141,11 +141,4 @@ binary_sensor:
       - delayed_on: 5s
     on_press:
     
-# ==========================================
-# UPTIME
-# ==========================================
-text_sensor:
-  - platform: uptime
-    name: "Uptime"
-    icon: mdi:clock-outline
-    id: uptime_text
+
