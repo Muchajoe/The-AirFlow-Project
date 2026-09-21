@@ -13,6 +13,30 @@ No proprietary desktop software required: just plug it in, connect to Wi-Fi, and
 
 ---
 
+## 📑 Table of Contents
+
+1. [The AirFlow Project Features](#-features-at-a-glance)
+2. [DIY Expansion Port](#-the-hacker-header-diy-expansion-port)
+3. [Socketed MCU Design)](#-modular-bring-your-own-brain-architecture)
+4. [PWM Signal Integrity ](#-advanced-pwm-signal-integrity-true-5v-push-pull)
+5. [Power Input Options](#-flexible-power-input-options)
+6. [Hardware Protection](#%EF%B8%8F-ultimate-hardware-protection)
+7. [Dimensions & Clearance](#-mechanical-dimensions--clearance)
+8. [Getting Started](#-quick-start)
+   - [ESPHome / Home Assistant](#option-a-esphome--home-assistant)
+   - [Arduino](#option-b-the-arduino-way)
+9. [Hardware & Pinout](#-hardware--pinout)
+10. [Power Supply](#%EF%B8%8F-power-supply-safety-note)
+11. [Troubleshooting](#troubleshooting)
+12. [Important Words](#famous-and-important-last-words)
+13. [Power Supply](#%EF%B8%8F-power-supply-safety-note)
+14. [Troubleshooting](#troubleshooting)
+15. [Where to buy](#)
+15. [License](#%EF%B8%8F-license)
+
+
+---
+
 ## ✨ Features at a Glance
 
 * **The Brain:** Powered by a high-performance **ESP32-S3 Zero/Mini** (or optional ESP32C3 Zero/Mini or ESP32C6 Zero/Mini (NOT SuperMini)). Provides massive computing power for complex PID controllers, Wi-Fi, and Bluetooth.
