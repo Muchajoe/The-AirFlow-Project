@@ -139,6 +139,6 @@ binary_sensor:
     name: "Boot Button"
     filters:
       - delayed_on: 5s
-    on_press:
+    on_press: factory_reset_btn
     
 
