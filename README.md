@@ -2,7 +2,7 @@
 [![Software License: MIT](https://img.shields.io/badge/Software_License-MIT-yellow.svg)](LICENSE-HARDWARE)
 [![Hardware License: CC BY-NC-ND 4.0](https://img.shields.io/badge/Hardware_License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 [![Home Assistant](https://img.shields.io/badge/Home_Assistant-Ready-41BDF5?logo=homeassistant&logoColor=white.svg)](https://www.home-assistant.io/)
-[![Buy on Tindie](https://img.shields.io/badge/SOON_on-Tindie-blueviolet.svg)](https://www.tindie.com/)
+[![Buy on Tindie](https://img.shields.io/badge/SOON_on-Tindie-blueviolet.svg)](https://www.tindie.com/products/the-omega-projects/the-airflow-project-esp32-pwm-fan-controller/)
 [![V1.0 Release](https://img.shields.io/badge/🎉_Release-HERE!-brightgreen.svg)](https://github.com/Muchajoe/The-AirFlow-Project/releases)
 
 An ultra-compact (40x40 mm), intelligent 4-channel fan controller built for PC modding, SFF (Small Form Factor) builds, and smart home integration. **Please read this carefully!**
@@ -31,7 +31,7 @@ No proprietary desktop software required: just plug it in, connect to Wi-Fi, and
 12. [Important Words](#famous-and-important-last-words)
 13. [Power Supply](#%EF%B8%8F-power-supply-safety-note)
 14. [Troubleshooting](#troubleshooting)
-15. [Where to buy](#)
+15. [Where to buy (tindie.com)](https://www.tindie.com/products/the-omega-projects/the-airflow-project-esp32-pwm-fan-controller/)
 15. [License](#%EF%B8%8F-license)
 
 
